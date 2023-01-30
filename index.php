@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="bovenbalk"></div>
+    <div class="bovenbalk">
+
+    </div>
 
     <div class="onderbalk">
 
@@ -72,19 +74,14 @@
 
 </div>
 
-<footer></footer>
+<footer>
 
-<php?
-
-$place = 'Amsterdam'
-
-date _default_timezone_set(place)
-
-$nu = date(place)
-
-echo $nu;
+<?php
+echo 'vandaag is'.date('m-d-y');
+echo 'en de tijd is'.date('h:i:s');
 ?>
+</footer>
+
 
 </body>
-
 </html>

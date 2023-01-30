@@ -4,7 +4,6 @@
 }
 /* Main Settings */
 body{
-<<<<<<< HEAD
     width: 100vw;
     height: 500vh;
     display: flex;
@@ -40,9 +39,6 @@ section{
     flex-direction: column;
     background-color: rgb(40, 40, 40);
     z-index: 1;
-=======
-    background-color: yellow;
->>>>>>> 81e842c28353828aee5d3e4663630f7b37c0a50f
 }
 
 /* HomePage MainThings*/
