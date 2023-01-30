@@ -15,3 +15,8 @@
     <a href="brandon.html">naar brandon's pagina</a><br>
 </body>
 </html>
+
+<php?
+    date _default_timezone_set("Europa/Amsterdam")
+echo . 
+?>
