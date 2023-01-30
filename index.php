@@ -6,8 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gameINK</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="store.php">store</a></li>
+            <li><a href="library.php">library</a></li>
+            <li><a href="friends.php">friends</a></li>
+            <li><a href="user.php"><i class="fa-solid fa-user"></i></a></li>
+            <li><a href="settings.php"><i class="fa-solid fa-gear"></i></a></li>
+        <ul>
+    </header>
+        
+    <br>
+
     <div class="bovenbalk">
 
     </div>
@@ -75,13 +88,8 @@
 </div>
 
 <footer>
-
-<?php
-echo 'vandaag is'.date('m-d-y');
-echo 'en de tijd is'.date('h:i:s');
-?>
+    hi
 </footer>
-
 
 </body>
 </html>
