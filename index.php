@@ -16,10 +16,10 @@
 </body>
 </html>
 
-<php?
-date _default_timezone_set("Europa/Amsterdam")
+<?php
 
-$nu = date("H i s");
+date_default_timezone_set("Europe/Amsterdam");
 
-echo $nu;
+echo "het is nu " . date("H:i:s");
+
 ?>
