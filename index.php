@@ -17,6 +17,9 @@
 </html>
 
 <php?
-    date _default_timezone_set("Europa/Amsterdam")
-echo . 
+date _default_timezone_set("Europa/Amsterdam")
+
+$nu = date("H i s");
+
+echo $nu;
 ?>
