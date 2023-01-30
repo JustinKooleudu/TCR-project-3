@@ -74,6 +74,17 @@
 
 <footer></footer>
 
+<php?
+
+$place = 'Amsterdam'
+
+date _default_timezone_set(place)
+
+$nu = date(place)
+
+echo $nu;
+?>
 
 </body>
+
 </html>
