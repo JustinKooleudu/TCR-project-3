@@ -19,5 +19,10 @@
             <li><a href="store.php">store</a></li>
         <ul>
     </header>
+
+    <br><br><br><br><br><br>
+
+    <h9>You have no friends</h9>
+
 </body>
 </html>
