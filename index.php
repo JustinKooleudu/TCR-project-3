@@ -11,12 +11,12 @@
 <body>
     <header>
         <ul>
-            <li><a href="store.php">store</a></li>
-            <li><a href="library.php">library</a></li>
-            <li><a href="friends.php">friends</a></li>
-            <li class="right"><a href="index.php"><i class="fa fa-home"></i></a></li>
-            <li class="right"><a href="user.php"><i class="fa fa-user"></i></a></li>
             <li class="right"><a href="settings.php"><i class="fa fa-gear"></i></a></li>
+            <li class="right"><a href="user.php"><i class="fa fa-user"></i></a></li>
+            <li class="right"><a href="index.php"><i class="fa fa-home"></i></a></li>
+            <li><a href="friends.php">friends</a></li>
+            <li><a href="library.php">library</a></li>
+            <li><a href="store.php">store</a></li>
         <ul>
     </header>
         
