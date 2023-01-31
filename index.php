@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gameINK</title>
     <link rel="stylesheet" href="main.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -14,24 +14,18 @@
             <li><a href="store.php">store</a></li>
             <li><a href="library.php">library</a></li>
             <li><a href="friends.php">friends</a></li>
-            <li><a href="user.php"><i class="fa-solid fa-user"></i></a></li>
-            <li><a href="settings.php"><i class="fa-solid fa-gear"></i></a></li>
+            <li class="right"><a href="user.php"><i class="fa fa-user"></i></a></li>
+            <li class="right"><a href="settings.php"><i class="fa fa-gear"></i></a></li>
         <ul>
     </header>
         
     <br>
 
-    <div class="bovenbalk">
-
-    </div>
+    <div class="bovenbalk"></div>
 
     <div class="onderbalk">
 
     <div class="Lback back">
-        <!-- <h1>Game<ps>inkt</ps></h1>
-        <a href="justin.html">naar justin's pagina</a>
-        <a href="amarencio.html">naar amarencio's pagina</a>
-        <a href="brandon.html">naar brandon's pagina</a> -->
     </div>
 
     <section>
