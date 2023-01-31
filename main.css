@@ -8,6 +8,7 @@ body{
     height: 500vh;
     display: flex;
     flex-direction: column;
+    background-color: rgb(40, 40, 40);
 }
 
 ul {
