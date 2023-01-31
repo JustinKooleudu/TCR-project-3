@@ -19,5 +19,8 @@
             <li><a href="store.php">store</a></li>
         <ul>
     </header>
+
+    <div class="bovenbalk"></div>
+
 </body>
 </html>
