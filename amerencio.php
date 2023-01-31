@@ -1,5 +1,4 @@
 <html>
-    <link rel="stylesheet" href="amerencio.css">
 
     <?php
     echo '<>Hello World</p> <br>';
