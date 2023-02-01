@@ -1,7 +1,10 @@
-var checkBox = getElementById("switch");
+var checkbox = document.getElementById("switch");
 
-if (checkBox.checked == true) {
-    getElementById('stylesheet').href='dark.css';
-else {
-    getElementById('stylesheet').href='light.css';
+function mode(){
+    var element = document.body;
+    element.classList.toggle("lightmode")
+}
+
+if (checkbox.checked == true) {
+    mode();
 }
