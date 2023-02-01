@@ -1,10 +1,6 @@
-<script>
-function enableStylesheet (node) {
-  node.rel = 'stylesheet';
+if (checkBox.checked == true){
+    getElementById('stylesheet').href='dark.css';
 }
-
-function disableStylesheet (node) {
-  node.rel = 'alternate stylesheet';
+else {
+    getElementById('stylesheet').href='light.css';
 }
-
-if 

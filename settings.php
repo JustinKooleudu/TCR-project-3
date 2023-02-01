@@ -7,6 +7,7 @@
     <title>gameINK</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="java.js"></script>
 </head>
 <body class="settings">
     <header>
@@ -27,7 +28,7 @@
 <p>dark mode: </p>
 
 <label class="switch">
-  <input type="checkbox" checked>
+  <input type="checkbox" id="switch" onclick="switch()" checked>
   <span class="slider round"></span>
 </label>
 
