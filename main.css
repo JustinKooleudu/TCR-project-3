@@ -274,3 +274,8 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.lightmode {
+    background-color: #DDD;
+    color: #000;
+}
