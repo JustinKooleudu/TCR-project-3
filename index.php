@@ -21,8 +21,6 @@
         <ul>
     </header>
 
-    <div class="bovenbalk"></div>
-
     <div class="onderbalk">
 
     <div class="Lback back">

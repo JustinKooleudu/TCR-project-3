@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
 }
-
 :root {
     /* main colors */
     --BlackColor: rgb(15, 15 , 15);
@@ -11,7 +10,7 @@
     --HouseColor: /* een echte kleur maar welke weet ik nog niet, messchien iets moderns ofz?*/;
 
     /* main widths and heights */
-    --SectionHeight: 89vh;
+    --SectionHeight: 240vh;
     --SectionHeightSmall: 12vh;
 
     --SectionWidth: 90vw;
@@ -28,6 +27,7 @@ body {
     flex-direction: column;
     background-color: var(--LightColor);
 }
+
 ul {
     list-style-type: none;
     background-color: rgb(10, 10, 10);
@@ -55,6 +55,11 @@ a:hover {
     font-size: 28px;
 }
 
+.bovenbalk {
+    height: 1vh;
+    background-color: var(--LightColor);
+    z-index: 2;
+}
 .onderbalk {
     height: var(--SectionHeight);
     display: flex;
@@ -63,20 +68,15 @@ a:hover {
 
 .back {
     position: relative;
-    width: 13%;
+    width: 5vw;
     height: var(--SectionHeight);
     background-color: var(--LightColor);
     z-index: 1;
 }
-
-.Lback {
-    width: 15%;
-}
-
 section {
     position: relative;
-    width: 85%;
-    height: var(--SectionHeight);
+    width: var(--SectionWidth);
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--LightColor);
@@ -84,54 +84,64 @@ section {
 }
 
 /* HomePage MainThings*/
-
-.SP {
-    height: 10vh;
-    background-color: var(--LightColor);
-}
-
 .SPsmall {
-    height: 4vh;
+    height: var(--SectionHeightSmall);
+    background-color: var(--LightColor);
+    display: flex;
+    flex-direction: column-reverse;
+}
+.text{
+    width: 100%;
+    height: 50%;
+    background-color: var(--WhiteColor);
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
 
 .S1 {
     background-color: var(--LightColor);
-    height: 3%;
+    height: 6vh;
 }
-
-/*----------------------------------------------------------------------------------------------------------------*/
-
 .S2 {
     background-color: var(--LightColor);
-    height: 70vh;
+    height: 75vh;
+    width: var(--SectionWidth);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 }
-
-.S2child1 {
-    width: 76%;
-    height: 100%;
+.S2child {
+    width: 45%;
+    height: 75vh;
     background-color: white;
 }
-
-.S2child2 {
-    width: 20%;
-    height: 100%;
+.txt{
+    width: 100%;
+    height: 10%;
+    background-color: var(--BlackColor);
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+.ScrollWheel{
+    width: var(--SectionWidth);
+    height: 150vh;
     background-color: var(--LightColor);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
-
-.KA {
-    width: 90%;
-    height: 17%;
+.CardHolder{
+    position: relative;
+    width: 97%;
+    height: 47%;
+    background-color: var(--LightColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card{
+    position: relative;
+    width: 20%;
+    height: 100%;
     background-color: white;
 }
 
-/*----------------------------------------------------------------------------------------------------------------*/
