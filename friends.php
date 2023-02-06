@@ -25,7 +25,11 @@
 
     <br><br><br><br><br><br>
 
+<<<<<<< HEAD
     <h1 id="Friends" >You have no friends</h1>
+=======
+    <h1 class="friendless">You have no friends</h1>
+>>>>>>> 376d2faadbe9c3d93196b7d30163258b76f4f45b
 
 </body>
 </html>
