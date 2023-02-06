@@ -1,10 +1,12 @@
-var checkbox = document.getElementById("switch");
-
-function mode(){
+function lightmode() {
     var element = document.body;
-    element.classList.toggle("lightmode")
+    element.classList.toggle("light-mode");
 }
 
-if (checkbox.checked == true) {
-    mode();
+function switch() {
+    var checkBox = document.getElementById("switch");
+
+    if (checkBox.checked == true) {
+        lightmode();
+    }
 }

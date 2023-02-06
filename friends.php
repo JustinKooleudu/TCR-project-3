@@ -25,7 +25,7 @@
 
     <br><br><br><br><br><br>
 
-    <h1 class="friendless">You have no friends</h1>
+    <p class="friendless">You have no friends</p>
 
 </body>
 </html>
