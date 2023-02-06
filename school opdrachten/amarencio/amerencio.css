@@ -11,3 +11,11 @@ html{
     color: white;
     background-color: rgb(30,30,30);
 }
+
+table{
+    border-style:solid;
+
+border-width:2px;
+
+border-color:black;
+}
