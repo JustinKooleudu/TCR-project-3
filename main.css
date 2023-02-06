@@ -134,4 +134,8 @@ section {
     background-color: white;
 }
 
-/*----------------------------------------------------------------------------------------------------------------*/
+/*friends*/
+.friendless {
+    text-align: center;
+    font-size: 300px;
+}
