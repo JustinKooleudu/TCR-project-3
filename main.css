@@ -5,10 +5,11 @@
 
 :root {
     /* main colors */
-    --BlackColor: rgb(15, 15 , 15);
-    --LightColor: rgb(40, 40, 40);
-    --WhiteColor: rgb(150, 150, 150);
-    --HouseColor: /* een echte kleur maar welke weet ik nog niet, messchien iets moderns ofz?*/;
+    --V5: #003249;
+    --V4: #007ea7;
+    --V3: #80ced7;
+    --V2: #9ad1d4;
+    --V1: #ccdbdc;
 
     /* main widths and heights */
     --SectionHeight: 89vh;
@@ -26,7 +27,7 @@ body {
     height: var(--SectionHeight);
     display: flex;
     flex-direction: column;
-    background-color: var(--LightColor);
+    background-color: var(--V4);
 }
 
 .light-mode {
@@ -36,7 +37,7 @@ body {
 
 ul {
     list-style-type: none;
-    background-color: rgb(10, 10, 10);
+    background-color: var(--V5);
     height: 7vh;
     padding-right: 2vw;
     display: flex;
@@ -71,7 +72,7 @@ a:hover {
     position: relative;
     width: 13%;
     height: var(--SectionHeight);
-    background-color: var(--LightColor);
+    background-color: var(--V2);
     z-index: 1;
 }
 
@@ -85,7 +86,7 @@ section {
     height: var(--SectionHeight);
     display: flex;
     flex-direction: column;
-    background-color: var(--LightColor);
+    background-color: var(--V2);
     z-index: 1;
 }
 
@@ -93,7 +94,7 @@ section {
 
 .SP {
     height: 10vh;
-    background-color: var(--LightColor);
+    background-color: var(--V2);
 }
 
 .SPsmall {
@@ -103,14 +104,14 @@ section {
 /*----------------------------------------------------------------------------------------------------------------*/
 
 .S1 {
-    background-color: var(--LightColor);
+    background-color: var(--V2);
     height: 3%;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
 
 .S2 {
-    background-color: var(--LightColor);
+    background-color: var(--V2);
     height: 70vh;
     display: flex;
     flex-direction: row;
@@ -127,7 +128,7 @@ section {
 .S2child2 {
     width: 20%;
     height: 100%;
-    background-color: var(--LightColor);
+    background-color: var(--V2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
