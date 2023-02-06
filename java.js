@@ -3,7 +3,7 @@ function lightmode() {
     element.classList.toggle("light-mode");
 }
 
-function switch() {
+function lightswitch() {
     var checkBox = document.getElementById("switch");
 
     if (checkBox.checked == true) {
