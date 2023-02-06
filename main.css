@@ -5,6 +5,7 @@
 
 :root {
     /* main colors */
+    --V6: #000;
     --V5: #003249;
     --V4: #007ea7;
     --V3: #80ced7;
@@ -31,7 +32,7 @@ body {
 }
 ul {
     list-style-type: none;
-    background-color: var(--V5);
+    background-color: var(--V4);
     height: 7vh;
     padding-right: 2vw;
     display: flex;
