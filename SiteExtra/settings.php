@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <title>gameINK</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="java.js"></script>
+    <script src="app.js"></script>
 </head>
+
 <body>
     <header>
         <ul>
@@ -18,20 +20,22 @@
             <li><a href="friends.php">friends</a></li>
             <li><a href="library.php">library</a></li>
             <li><a href="store.php">store</a></li>
-        <ul>
+            <ul>
     </header>
-    
+
     <div class="bovenbalk"></div>
-    
-<br><br>
 
-<p>dark mode: </p>
+    <br><br>
 
-<label class="switch">
-  <input type="checkbox" id="switch" onclick="lightswitch()" checked>
-  <span class="slider round"></span>
-</label>
+    <p>light mode: </p>
 
+    <div id="checkbox-container">
+        <label class="switch">
+            <input type="checkbox" id="switch" onclick="light_switch()">
+            <span class="slider round"></span>
+        </label>
+    </div>
 
 </body>
+
 </html>
