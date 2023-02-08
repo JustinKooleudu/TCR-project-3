@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gameINK</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="java.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
 <body>
-    <header>
+    <nav>
         <ul>
             <li class="right"><a href="settings.php"><i class="fa fa-gear"></i></a></li>
             <li class="right"><a href="user.php"><i class="fa fa-user"></i></a></li>
@@ -19,13 +18,4 @@
             <li><a href="library.php">library</a></li>
             <li><a href="store.php">store</a></li>
         <ul>
-    </header>
-    
-    <div class="bovenbalk"></div>
-
-    <br><br><br><br><br><br>
-
-    <p class="friendless">You have no friends</p>
-
-</body>
-</html>
+    </nav>
