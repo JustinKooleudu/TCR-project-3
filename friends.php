@@ -7,7 +7,7 @@
     <title>gameINK</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="java.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
     <header>
