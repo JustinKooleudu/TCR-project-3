@@ -151,7 +151,7 @@ div#dropdown2{
     margin-left: 75%;
     margin-top: 2%;
     border-radius: 20px;
-    background-color: var(--V3);
+    background-color: var(--V5);
     z-index: 90;
     display: flex;
     flex-direction: column;
@@ -172,7 +172,7 @@ i#SigninDrop, i#LoginDrop{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: white;
+    color: black;
     pointer-events: none;
     align-items: center;
     padding-top: 5%;
@@ -192,14 +192,6 @@ div#dropdown2 a:hover {
 
 
 /* HEADER MAIN INPORTENT (END)!! */
-
-
-
-
-
-
-
-
 
 
 
@@ -224,6 +216,13 @@ div#HeightCorrection{
     height: 12vh;
     width: 100vw;
     background-color: var(--V15);
+    color: white;
+}
+h1#welcome{
+    position: sticky;
+    margin-top: 1%;
+    margin-left: 7%;
+    font-size: 300%;
 }
 div#HeightCorrection .line{
     position: relative;
@@ -246,6 +245,8 @@ img#currentDisplay{
     height: 100%;
     width: 70%;
 }
+
+
 
 /* games */
 /* PAGINA 1 */
@@ -282,18 +283,110 @@ footer{
     background-color: var(--V1);
 }
 
-/* PAGINA 2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* USER sign-up */
 
 section.oneSign {
     height: 86vh;
     width: 100vw;
-    background-color: var(--V4);
+    background-color: var(--V3);
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .sign {
     height: 73vh;
     width: 30vw;
     background-color: white;
+    color: var(--V3);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.sign h1{
+    display: flex;
+    flex-direction: row;
+}
+h1#main{
+    font-size: 250%;
+    margin-top: 5%;
+    overflow-y: hidden;
+}
+h1#main p#i{
+    color: red;
+    overflow-y: hidden;
+}
+h1#second{
+    font-size: 150%;
+    margin-top: 5%;
+    overflow-y: hidden;
+}
+h1#second a{
+    color: var(--V3);
+}
+form#signin{
+    margin-top: 5%;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+form#signin input{
+    height: 10%;
+    width: 60%;
+    border-radius: 10px;
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: 0px 0px 10px 5px rgba(199,199,199,1);
+}
+form#signin input::placeholder{
+    color: rgb(101, 101, 101);
+    font-family: 'Franklin Gothic Medium';
+    font-size: 100%;
+    text-decoration: none;
+}
+form#signin button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 10%;
+    width: 40%;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--V2);
+    color: white;
+    font-size: 150%;
+}
+h1#mededeling{
+    margin-top: 10%;
+    position: absolute;
+    color: white;
+    font-size: 150%;
 }

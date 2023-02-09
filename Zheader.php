@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+// require('config.php');
+if (!empty($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    $result = mysqli_query($conn, "SELECT * FROM gebruiker WHERE id = $id");
+    $row = mysqli_fetch_assoc($result);
+}
+else
+{
+    // header("Location: main.php");
+}
+?>
+
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +20,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="app.js"></script>
+    <script src="Bapp.js"></script>
 </head>
 <body>
 
@@ -33,19 +46,18 @@
             <L id="line"></L>
             <L id="line"></L>
         </i></a>
-        <a id="logo"><img id="logo" src="docs/logo.png"></a>
+        <a href="Aindex.php" id="logo"><img id="logo" src="docs/logo.png" src="../docs/logo.png"></a>
         <a id="pad" onclick="Dropdown2()"><i class='fas fa-user-circle' id="user"></i></a>
     </nav>
 
-
     <div id="dropdown2">
-    <a href="signup.php">
+    <a href="USERsignup.php">
         <i id= "SigninDrop">
             <h1>Sing in</h1>
             <i id="drop" class='fas fa-sign-in-alt'></i>
         </i>
         </a>
-        <a href="login.php">
+        <a href="USERlogin.php">
         <i id="LoginDrop">
             <h1>Log in</h1>
             <i id="drop" class='fas fa-sign-in-alt'></i>

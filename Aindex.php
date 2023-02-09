@@ -1,5 +1,16 @@
 <?php
-    include_once('standards/header.php'); 
+    include_once('Zheader.php');
+    require("config.php");
+if (!empty($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    $result = mysqli_query($conn, "SELECT * FROM gebruiker WHERE Id = $id");
+    $row = mysqli_fetch_assoc($result);
+    echo $row;
+}
+else
+{
+    // header("Location: main.php");
+}
 ?>
 
 <section id="oneIndex">
@@ -9,6 +20,9 @@
 
     <div id="HeightCorrection">
         <div class="line"></div>
+        <h1 id="welcome">
+            <?php
+         ?></h1>
     </div>
 
     <div id='SignIN'></div>
@@ -64,5 +78,5 @@
     </section>
 
     <?php
-    include_once('standards/footer.php'); 
+    include_once('Zfooter.php'); 
 ?>
