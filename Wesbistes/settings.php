@@ -10,9 +10,9 @@ session_start()
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gameINK</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="app.js"></script>
+    <script src="Bapp.js"></script>
 </head>
 
 <body>
@@ -42,8 +42,3 @@ session_start()
 
 </body>
 </html>
-
-<?php
-$_SESSION["switch"];
-echo $_SESSION
-?>
