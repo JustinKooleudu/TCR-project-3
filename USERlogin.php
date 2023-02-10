@@ -12,8 +12,9 @@ if(isset($_POST['login'])) {
     if(mysqli_num_rows($result) > 0) {
         if($password == $row['Password']){
             $_SESSION['login'] = true;
-            $_SESSION['id'] = $row['id'];
-            header("Location: index.php");
+            $_SESSION['id'] = $row['Id'];
+            print_r($_SESSION);
+            header("Location: Aindex.php");
         }
         else{
             echo

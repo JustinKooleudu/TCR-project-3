@@ -5,7 +5,7 @@ if (!empty($_SESSION['id'])){
     $id = $_SESSION['id'];
     $result = mysqli_query($conn, "SELECT * FROM gebruiker WHERE Id = $id");
     $row = mysqli_fetch_assoc($result);
-    echo $row;
+    print_r($_SESSION);
 }
 else
 {
@@ -34,8 +34,7 @@ else
             <img src="docs/test2.jpg">
             <div id="Info">
                 <h1>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi exercitationem asperiores,
-                     earum dolorem consequuntur sed, explicabo rerum, cupiditate rem a fugit ducimus inventore veniam 
+                    <?php print_r($_SESSION['id']); ?>
                 </h1>
             </div>
         </div>
