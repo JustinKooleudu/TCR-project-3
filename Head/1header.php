@@ -51,13 +51,13 @@ else
     </nav>
 
     <div id="dropdown2">
-    <a href="USERsignup.php">
+    <a href="User/signup.php">
         <i id= "SigninDrop">
             <h1>Sing in</h1>
             <i id="drop" class='fas fa-sign-in-alt'></i>
         </i>
         </a>
-        <a href="USERlogin.php">
+        <a href="User/login.php">
         <i id="LoginDrop">
             <h1>Log in</h1>
             <i id="drop" class='fas fa-sign-in-alt'></i>
