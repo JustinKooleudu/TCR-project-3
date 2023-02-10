@@ -1,35 +1,44 @@
-*{
+* {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+
 /* main settings */
 /* PAGINA 1 */
 /* HEADER MAIN INPORTENT!! */
-:root{
-    --V5: rgb(240,240,240);
-    --V4: rgb(120,120,120);
-    --V3: rgb(60,60,60);
-    --V2: rgb(20,20,20);
-    --V15: rgb(15,15, 15);
-    --V1: rgb(10,10, 10);
+:root {
+    --V5: rgb(240, 240, 240);
+    --V4: rgb(120, 120, 120);
+    --V3: rgb(60, 60, 60);
+    --V2: rgb(20, 20, 20);
+    --V15: rgb(15, 15, 15);
+    --V1: rgb(10, 10, 10);
 
     --Huiskleur: rgb(200, 0, 0);
 
-    --GrayColor: rgb(100,100,100);
+    --GrayColor: rgb(100, 100, 100);
     --MainColor: rgb(65, 65, 65);
-    --LightColor: rgb(180,180,180);
-    --White: rgb(250,250,250);
+    --LightColor: rgb(180, 180, 180);
+    --White: rgb(250, 250, 250);
 }
-html{
+
+html {
     font-family: Arial, sans-serif;
 }
-body{
+
+body {
     height: 100vh;
     width: 100vw;
     overflow-y: auto;
 }
-nav{
+
+.light-mode {
+    background-color: whitesmoke;
+    color: black;
+}
+
+nav {
     height: 8vh;
     width: 100%;
     display: flex;
@@ -40,15 +49,18 @@ nav{
     justify-content: space-between;
     z-index: 1000;
 }
-a#pad{
+
+a#pad {
     padding: 0% 6% 0% 1%;
     z-index: 1000;
 }
-a#logo{
+
+a#logo {
     padding-right: 10%;
     cursor: pointer;
 }
-i#dropdownParent{
+
+i#dropdownParent {
     height: 4vh;
     width: 7vw;
     display: flex;
@@ -57,7 +69,8 @@ i#dropdownParent{
     justify-content: space-around;
     cursor: pointer;
 }
-#line{
+
+#line {
     position: relative;
     height: 0.5vh;
     width: 2vw;
@@ -66,7 +79,7 @@ i#dropdownParent{
     opacity: 1;
 }
 
-div#dropdown1{
+div#dropdown1 {
     position: absolute;
     height: 100vh;
     width: 30vw;
@@ -76,13 +89,15 @@ div#dropdown1{
     background-color: var(--V2);
     z-index: 100;
 }
+
 div.Searchbar {
     height: 10%;
     width: 80%;
     margin-top: 12vh;
     margin-left: 10%;
 }
-form#searchBar{
+
+form#searchBar {
     height: 100%;
     width: 100%;
     display: flex;
@@ -90,7 +105,8 @@ form#searchBar{
     justify-content: space-between;
     align-items: center;
 }
-form#searchBar input{
+
+form#searchBar input {
     height: 100%;
     width: 80%;
     font-size: 200%;
@@ -100,12 +116,14 @@ form#searchBar input{
     border: none;
     color: white;
 }
+
 input::placeholder {
     font-size: 80%;
     color: white;
     font-family: Arial, sans-serif;
 }
-form#searchBar button{
+
+form#searchBar button {
     height: 100%;
     width: 20%;
     font-size: 200%;
@@ -115,15 +133,18 @@ form#searchBar button{
     border: none;
     color: white;
 }
-a#inc:hover{
+
+a#inc:hover {
     color: red;
     transition: 300ms;
 }
-a#incc:hover{
+
+a#incc:hover {
     color: black;
     transition: 300ms;
 }
-div#dropdown1 a{
+
+div#dropdown1 a {
     margin-left: 20%;
     font-size: 250%;
     font-weight: bold;
@@ -132,19 +153,20 @@ div#dropdown1 a{
     color: white;
 }
 
-img#logo{
+img#logo {
     height: 7vh;
     width: 4vw;
     border-radius: 6px;
     background-color: var(--Huiskleur);
 }
 
-i#user{
+i#user {
     font-size: 300%;
     color: var(--V5);
     cursor: pointer;
 }
-div#dropdown2{
+
+div#dropdown2 {
     position: absolute;
     height: 20vh;
     width: 20vw;
@@ -160,13 +182,14 @@ div#dropdown2{
     opacity: 0;
 }
 
-div#dropdown2 a{
+div#dropdown2 a {
     height: 50%;
     width: 100%;
     text-decoration: none;
 }
 
-i#SigninDrop, i#LoginDrop{
+i#SigninDrop,
+i#LoginDrop {
     height: 50%;
     width: 100%;
     display: flex;
@@ -177,11 +200,16 @@ i#SigninDrop, i#LoginDrop{
     align-items: center;
     padding-top: 5%;
 }
-i#SigninDrop h1, i#drop, i#LoginDrop h1, i#drop {
+
+i#SigninDrop h1,
+i#drop,
+i#LoginDrop h1,
+i#drop {
     padding: 0% 5% 0% 5%;
 }
 
-i#SigninDrop h1, #LoginDrop h1{
+i#SigninDrop h1,
+#LoginDrop h1 {
     font-size: 50%;
 }
 
@@ -195,7 +223,7 @@ div#dropdown2 a:hover {
 
 
 
-section#oneIndex{
+section#oneIndex {
     height: 80vh;
     width: 100vw;
     background-color: red;
@@ -205,32 +233,35 @@ section#oneIndex{
     z-index: 50;
 }
 
-div.Side{
+div.Side {
     margin-top: 0.2%;
     height: 99.8%;
     width: 30%;
     background-color: black;
 }
 
-div#HeightCorrection{
+div#HeightCorrection {
     height: 12vh;
     width: 100vw;
     background-color: var(--V15);
     color: white;
 }
-h1#welcome{
+
+h1#welcome {
     position: sticky;
     margin-top: 1%;
     margin-left: 7%;
     font-size: 300%;
 }
-div#HeightCorrection .line{
+
+div#HeightCorrection .line {
     position: relative;
     height: 5%;
     width: 100%;
     background-color: var(--Huiskleur);
 }
-section#gamepass{
+
+section#gamepass {
     height: 220vh;
     width: 100vw;
     background-color: var(--V15);
@@ -241,7 +272,7 @@ section#gamepass{
 }
 
 /* section one */
-img#currentDisplay{
+img#currentDisplay {
     height: 100%;
     width: 70%;
 }
@@ -250,7 +281,7 @@ img#currentDisplay{
 
 /* games */
 /* PAGINA 1 */
-container{
+container {
     height: 40%;
     width: 100%;
     /* background-color: var(--test); */
@@ -259,25 +290,28 @@ container{
     justify-content: space-evenly;
     align-items: center;
 }
-.pass{
+
+.pass {
     height: 90%;
     width: 25%;
     background-color: gray;
     display: flex;
     flex-direction: column;
 }
+
 .pass img {
     width: 100%;
     height: 65%;
 }
-.pass #Info{
+
+.pass #Info {
     width: 100%;
     height: 35%;
     background-color: var(--V2);
     color: white;
 }
 
-footer{
+footer {
     height: 50vh;
     width: 100vw;
     background-color: var(--V1);
@@ -286,19 +320,68 @@ footer{
 
 
 
+/*light dark switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
 
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
 
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
 
+input:checked+.slider {
+    background-color: #2196F3;
+}
 
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
 
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
 
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
 
-
-
-
-
-
+.slider.round:before {
+    border-radius: 50%;
+}
 
 
 
@@ -316,6 +399,7 @@ section.oneSign {
     align-items: center;
     justify-content: center;
 }
+
 .sign {
     height: 73vh;
     width: 30vw;
@@ -326,28 +410,34 @@ section.oneSign {
     flex-direction: column;
     border-radius: 20px;
 }
-.sign h1{
+
+.sign h1 {
     display: flex;
     flex-direction: row;
 }
-h1#main{
+
+h1#main {
     font-size: 250%;
     margin-top: 5%;
     overflow-y: hidden;
 }
-h1#main p#i{
+
+h1#main p#i {
     color: red;
     overflow-y: hidden;
 }
-h1#second{
+
+h1#second {
     font-size: 150%;
     margin-top: 5%;
     overflow-y: hidden;
 }
-h1#second a{
+
+h1#second a {
     color: var(--V3);
 }
-form#signin{
+
+form#signin {
     margin-top: 5%;
     width: 100%;
     height: 75%;
@@ -356,7 +446,8 @@ form#signin{
     flex-direction: column;
     justify-content: space-evenly;
 }
-form#signin input{
+
+form#signin input {
     height: 10%;
     width: 60%;
     border-radius: 10px;
@@ -366,15 +457,17 @@ form#signin input{
     -moz-appearance: none;
     appearance: none;
     outline: none;
-    box-shadow: 0px 0px 10px 5px rgba(199,199,199,1);
+    box-shadow: 0px 0px 10px 5px rgba(199, 199, 199, 1);
 }
-form#signin input::placeholder{
+
+form#signin input::placeholder {
     color: rgb(101, 101, 101);
     font-family: 'Franklin Gothic Medium';
     font-size: 100%;
     text-decoration: none;
 }
-form#signin button{
+
+form#signin button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 10%;
     width: 40%;
@@ -384,7 +477,8 @@ form#signin button{
     color: white;
     font-size: 150%;
 }
-h1#mededeling{
+
+h1#mededeling {
     margin-top: 10%;
     position: absolute;
     color: white;
