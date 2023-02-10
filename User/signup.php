@@ -1,6 +1,6 @@
 <?php
-require('config.php');
-include_once('Zheader.php');
+require('../config/config.php');
+include_once('../Head/2header.php');
 if (!empty($_SESSION['id'])) {
     header("Location; index.php");
 }
@@ -54,5 +54,5 @@ if(isset($_POST['register'])) {
     }
 }
 
-include_once('Zfooter.php'); 
+include_once('../Head/Footer2.php'); 
 ?>

@@ -1,6 +1,6 @@
 <?php
-    include_once('Zheader.php');
-    require("config.php");
+    include_once('Head/1header.php');
+    require("config/config.php");
 if (!empty($_SESSION['id'])){
     $id = $_SESSION['id'];
     $result = mysqli_query($conn, "SELECT * FROM gebruiker WHERE Id = $id");
@@ -34,7 +34,7 @@ else
             <img src="docs/test2.jpg">
             <div id="Info">
                 <h1>
-                    <?php print_r($_SESSION['id']); ?>
+                    <?php print_r($_SESSION['name']); ?>
                 </h1>
             </div>
         </div>
@@ -77,5 +77,5 @@ else
     </section>
 
     <?php
-    include_once('Zfooter.php'); 
+    include_once('Head/Footer1.php'); 
 ?>

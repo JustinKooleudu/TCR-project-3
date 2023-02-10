@@ -1,6 +1,6 @@
 <?php
-require('config.php');
-include_once('Zheader.php');
+require('../config/config.php');
+include_once('../Head/2header.php');
 if (!empty($_SESSION['id'])) {
     header("Location; USERlogin.php");
 }
@@ -13,6 +13,7 @@ if(isset($_POST['login'])) {
         if($password == $row['Password']){
             $_SESSION['login'] = true;
             $_SESSION['id'] = $row['Id'];
+            $_SESSION['name'] = $row['name'];
             print_r($_SESSION);
             header("Location: Aindex.php");
         }
@@ -41,5 +42,5 @@ if(isset($_POST['login'])) {
 </section>
 
 <?php
-    include_once('Zfooter.php'); 
+    include_once('../Head/Footer2.php'); 
 ?>
