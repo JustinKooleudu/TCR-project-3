@@ -9,36 +9,36 @@
 /* HEADER MAIN INPORTENT!! */
 :root {
     --V5: rgb(240, 240, 240);
+    --V49: rgb(220,220,220);
+    --V45: rgb(180,180,180);
     --V4: rgb(120, 120, 120);
     --V3: rgb(60, 60, 60);
     --V2: rgb(20, 20, 20);
     --V15: rgb(15, 15, 15);
     --V1: rgb(10, 10, 10);
 
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+
     --Huiskleur: rgb(200, 0, 0);
-
-    --GrayColor: rgb(100, 100, 100);
-    --MainColor: rgb(65, 65, 65);
-    --LightColor: rgb(180, 180, 180);
-    --White: rgb(250, 250, 250);
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 html {
-    font-family: Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
+    color: var(--black);
 }
-
 body {
-    height: 100vh;
     width: 100vw;
     overflow-y: auto;
+    background-color: var(--V49);
 }
-
-.light-mode {
-    background-color: whitesmoke;
-    color: black;
+a{
+    text-decoration: none;
+    color: var(--black);
 }
-
-nav {
+nav#Navbar {
     height: 8vh;
     width: 100%;
     display: flex;
@@ -49,17 +49,21 @@ nav {
     justify-content: space-between;
     z-index: 1000;
 }
-
 a#pad {
     padding: 0% 6% 0% 1%;
     z-index: 1000;
 }
-
-a#logo {
-    padding-right: 10%;
-    cursor: pointer;
+div.ProfileThings{
+    height: 8vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
-
+a#logo {
+    cursor: pointer;
+    padding-left: 10%;
+}
 i#dropdownParent {
     height: 4vh;
     width: 7vw;
@@ -69,16 +73,14 @@ i#dropdownParent {
     justify-content: space-around;
     cursor: pointer;
 }
-
 #line {
     position: relative;
     height: 0.5vh;
     width: 2vw;
-    background-color: white;
+    background-color: var(--white);
     transition: 300ms;
     opacity: 1;
 }
-
 div#dropdown1 {
     position: absolute;
     height: 100vh;
@@ -89,14 +91,12 @@ div#dropdown1 {
     background-color: var(--V2);
     z-index: 100;
 }
-
 div.Searchbar {
     height: 10%;
     width: 80%;
     margin-top: 12vh;
     margin-left: 10%;
 }
-
 form#searchBar {
     height: 100%;
     width: 100%;
@@ -105,7 +105,6 @@ form#searchBar {
     justify-content: space-between;
     align-items: center;
 }
-
 form#searchBar input {
     height: 100%;
     width: 80%;
@@ -114,15 +113,13 @@ form#searchBar input {
     text-align: center;
     background-color: var(--V4);
     border: none;
-    color: white;
+    color: var(--black);
 }
-
 input::placeholder {
     font-size: 80%;
-    color: white;
+    color: var(--black);
     font-family: Arial, sans-serif;
 }
-
 form#searchBar button {
     height: 100%;
     width: 20%;
@@ -131,41 +128,51 @@ form#searchBar button {
     text-align: center;
     background-color: var(--V4);
     border: none;
-    color: white;
+    color: var(--white);
 }
-
 a#inc:hover {
     color: red;
     transition: 300ms;
 }
-
 a#incc:hover {
-    color: black;
+    color: var(--black);
     transition: 300ms;
 }
-
 div#dropdown1 a {
     margin-left: 20%;
     font-size: 250%;
     font-weight: bold;
     margin-top: 5%;
     text-decoration: none;
-    color: white;
+    color: var(--white);
 }
-
 img#logo {
     height: 7vh;
     width: 4vw;
     border-radius: 6px;
     background-color: var(--Huiskleur);
 }
-
 i#user {
     font-size: 300%;
     color: var(--V5);
     cursor: pointer;
+    padding-right: 5vw;
 }
-
+div#cartCount{
+    position: absolute;
+    margin-top: -5vh;
+    margin-left: 3.5vw;
+    height: 3vh;
+    width: 2vw;
+    border-radius: 10px;
+    background-color: var(--V5);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+h1#cartCount{
+    font-size: 100%;
+}
 div#dropdown2 {
     position: absolute;
     height: 20vh;
@@ -181,13 +188,11 @@ div#dropdown2 {
     font-size: 200%;
     opacity: 0;
 }
-
 div#dropdown2 a {
     height: 50%;
     width: 100%;
     text-decoration: none;
 }
-
 i#SigninDrop,
 i#LoginDrop {
     height: 50%;
@@ -195,33 +200,47 @@ i#LoginDrop {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: black;
+    color: var(--black);
     pointer-events: none;
     align-items: center;
     padding-top: 5%;
 }
-
 i#SigninDrop h1,
 i#drop,
 i#LoginDrop h1,
 i#drop {
     padding: 0% 5% 0% 5%;
 }
-
 i#SigninDrop h1,
 #LoginDrop h1 {
     font-size: 50%;
 }
-
 div#dropdown2 a:hover {
     background-color: var(--V4);
     transition: 600ms;
 }
+button#Lightmode{
+    height: 8vh;
+    width: 20vw;
+    margin-left: 6vw;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 150%;
+    box-shadow: 0px 0px 15px 5px rgb(36, 36, 36);
+    border-radius: 20px;
+    border: none;
+    background-color: var(--V5);
+    color: var(--black);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 
-/* HEADER MAIN INPORTENT (END)!! */
-
-
+/* HEADER MAIN INPORTENT (END)!! ------------------------------------------------------------------------------------------------------*/
+/* FRONT PAGE (SLIDESHOW)!! ------------------------------------------------------------------------------------------------------*/
 
 section#oneIndex {
     height: 80vh;
@@ -232,26 +251,46 @@ section#oneIndex {
     overflow-y: hidden;
     z-index: 50;
 }
-
+img#currentDisplay{
+    height: 100%;
+    width: 70%;
+}
 div.Side {
     margin-top: 0.2%;
     height: 99.8%;
     width: 30%;
-    background-color: black;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-
 div#HeightCorrection {
     height: 12vh;
     width: 100vw;
     background-color: var(--V15);
-    color: white;
+    color: var(--white);
 }
-
 h1#welcome {
     position: sticky;
-    margin-top: 1%;
-    margin-left: 7%;
-    font-size: 300%;
+    font-size: 250%;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+#inform{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+#RecGames{
+    height: 90%;
+    width: 100%;
 }
 
 div#HeightCorrection .line {
@@ -261,182 +300,243 @@ div#HeightCorrection .line {
     background-color: var(--Huiskleur);
 }
 
-section#gamepass {
-    height: 220vh;
+/* FRONT PAGE (SLIDESHOW END)!! ------------------------------------------------------------------------------------------------------*/
+/* GAMES SECTION SPOTLIGHT SECTION ()!! ------------------------------------------------------------------------------------------------------*/
+section#spotlight{
+    height: 360vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--V15);
+}
+nav#Spotlight{
+    height: 10vh;
+    width: 80vw;
+    background-color: var(--V15);
+}
+div.spotlight1{
+    height: 60vh;
+    width: 80vw;
     background-color: var(--V15);
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-
-/* section one */
-img#currentDisplay {
-    height: 100%;
-    width: 70%;
+div.card{
+    height: 60vh;
+    width: 15vw;
+    background-color: var(--V15);
 }
-
-
-
-/* games */
-/* PAGINA 1 */
-container {
-    height: 40%;
-    width: 100%;
-    /* background-color: var(--test); */
+div.spotlight2{
+    height: 60vh;
+    width: 80vw;
+    margin-top: 5vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
+    background-color: var(--V15);
+}
+div.kaart{
+    height: 60vh;
+    width: 25vw;
+    background-color: var(--V15);
 }
 
-.pass {
-    height: 90%;
-    width: 25%;
-    background-color: gray;
+/* games info !! */
+/* gameType1 --------------------------------------------------------------------------*/
+img#gameImage1{
+    height: 40vh;
+    width: 15vw;
+    border-radius: 5px;
+}
+h1#gameName1{
+    height: 3vh;
+    width: 15vw;
+    font-size: 100%;
+    margin-top: 3vh;
+    color: var(--white);
+}
+h1#gamePrice1{
+    height: 6vh;
+    width: 15vw;
+    font-size: 150%;
+    color: var(--white);
+}
+button#addToCart{
+    height: 5vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 120%;
+    font-family: 'Rubik', sans-serif;
+    color: var(--black);
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--V5);
+    cursor: pointer;
+}
+/* gameType2 */
+img#gameImage2{
+    height: 30vh;
+    width: 25vw;
+    border-radius: 10px;
+}
+h1#gameName2{
+    height: 6vh;
+    width: 25vw;
+    font-size: 100%;
+    color: var(--white);
+    margin-left: 5%;
+}
+h1#gameInfo2{
+    height: 8vh;
+    width: 25vw;
+    margin-left: 5%;
+    color: var(--white);
+    font-size: 100%;
+}
+h1#gamePrice2{
+    height: 6vh;
+    width: 25vw;
+    font-size: 150%;
+    margin-left: 5%;
+    color: var(--white);
+}
+div.Spotlight3{
+    background-color: var(--V4);
+    height: 80vh;
+    width: 80vw;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav#Spotlight2{
+    height: 10vh;
+    width: 80vw;
+    background-color: var(--V15);
+}
+nav#Spotlight22{
+    height: 10vh;
+    width: 80vw;
+    background-color: var(--V4);
+    margin-left: 7vw;
+}
+div.spot4{
+    height: 70vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--V4);
+    margin-left: 7vw;
+}
+div.spotlight4{
+    height: 70vh;
+    width: 37vw;
+    background-color: var(--V4);
     display: flex;
     flex-direction: column;
 }
-
-.pass img {
-    width: 100%;
-    height: 65%;
+img#gameImage3{
+    height: 40vh;
+    width: 30vw;
+    border-radius: 10px;
 }
-
-.pass #Info {
-    width: 100%;
-    height: 35%;
-    background-color: var(--V2);
-    color: white;
-}
-
-footer {
+/* LAST */
+div.Spotlight5{
     height: 50vh;
-    width: 100vw;
-    background-color: var(--V1);
+    width: 80vw;
+    margin-top: 10vh;
+    background-color: var(--V15);
+    display: flex;
+    flex-direction: row;
 }
-
-
-
-
-/*light dark switch*/
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+img#gameImage5{
+    height: 50vh;
+    width: 40vw;
+    border-radius: 10px;
 }
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+div.exploreC{
+    height: 50vh;
+    width: 37.5vw;
+    margin-left: 2.5vw;
+    background-color: var(--V15);
 }
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+h1#exploreCtitle{
+    height: 10vh;
+    width: 80vw;
+    margin-top: 10vh;
+    color: var(--white);
 }
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+h1#exploreCinfo{
+    height: 10vh;
+    width: 80vw;
+    color: var(--white);
 }
-
-input:checked+.slider {
-    background-color: #2196F3;
+button#exploreCbutton{
+    height: 8vh;
+    width: 10vw;
 }
-
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+h1#spotlightTxt{
+    color: var(--white);
+    font-size: 200%;
 }
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
+/* GAMES SECTION SPOTLIGHT SECTION (END)!! ------------------------------------------------------------------------------------------------------*/
 
 
 
-
-
-
-
-/* USER sign-up */
+/* USER sign-up & Login (NEW PAGE) ------------------------------------------------------------------------------------------------------*/
 
 section.oneSign {
     height: 86vh;
     width: 100vw;
-    background-color: var(--V3);
+    /* background-color: var(--V3); */
+    background: url(../docs/UserBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 86vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Rubik', sans-serif;
 }
-
 .sign {
     height: 73vh;
     width: 30vw;
-    background-color: white;
+    background-color: var(--white);
     color: var(--V3);
     display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    box-shadow: 0px 0px 15px 5px rgb(36, 36, 36);
 }
-
 .sign h1 {
     display: flex;
     flex-direction: row;
 }
-
 h1#main {
     font-size: 250%;
     margin-top: 5%;
     overflow-y: hidden;
 }
-
-h1#main p#i {
+h1#main 
+p#i {
     color: red;
     overflow-y: hidden;
 }
-
 h1#second {
     font-size: 150%;
     margin-top: 5%;
     overflow-y: hidden;
 }
-
-h1#second a {
+h1#second 
+a {
     color: var(--V3);
 }
-
 form#signin {
     margin-top: 5%;
     width: 100%;
@@ -446,8 +546,8 @@ form#signin {
     flex-direction: column;
     justify-content: space-evenly;
 }
-
-form#signin input {
+form#signin 
+input {
     height: 10%;
     width: 60%;
     border-radius: 10px;
@@ -459,28 +559,301 @@ form#signin input {
     outline: none;
     box-shadow: 0px 0px 10px 5px rgba(199, 199, 199, 1);
 }
-
-form#signin input::placeholder {
+form#signin 
+input::placeholder {
     color: rgb(101, 101, 101);
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Rubik', sans-serif;
     font-size: 100%;
     text-decoration: none;
 }
-
-form#signin button {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+form#signin 
+button {
+    font-family: 'Rubik', sans-serif;
     height: 10%;
     width: 40%;
     border-radius: 10px;
     border: none;
     background-color: var(--V2);
-    color: white;
+    color: var(--white);
     font-size: 150%;
 }
-
 h1#mededeling {
     margin-top: 10%;
     position: absolute;
-    color: white;
+    color: var(--white);
     font-size: 150%;
+}
+
+/* USER sign-up & Login END (END) ------------------------------------------------------------------------------------------------------*/
+/* PROFILE PAGE (NEW PAGE) ------------------------------------------------------------------------------------------------------*/
+/* ACCOUNT (SETTINGS) ------------------------------------------------------------------------------------------------------*/
+section#ProfilePage{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+nav#ProfileNav{
+    height: 90vh;
+    width: 20vw;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    background-color: var(--V5);
+}
+div#accountSettinngs{
+    height: 140vh;
+    width: 60vw;
+    position: absolute;
+    margin-left: 31vw;
+    margin-top: 10vh;
+    background-color: var(--V5);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: none;
+}
+h1#accSett{
+    margin-left: 2vw;
+    margin-top: 3vh;
+    font-size: 200%;
+}
+p#accSett{
+    margin-left: 2vw;
+}
+h1#accIinf{
+    margin-left: 2vw;
+    margin-top: 5vh;
+    font-size: 200%;
+}
+p#accIinf{
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+form#accUsr{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+div.user,
+div.email{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10vh;
+    width: 50vw;
+    font-size: 120%;
+}
+input#acc{
+    margin-left: 2vw;
+    height: 5vh;
+    width: 15vw;
+}
+button#acc{
+    margin-left: 1vw;
+    height: 5vh;
+    width: 3vw;
+    background-color: rgb(128, 30, 255);
+    border: none;
+    border-radius: 10%;
+}
+h1#accDet{
+    margin-left: 2vw;
+    margin-top: 5vh;
+    font-size: 200%;
+}
+h1#accAdr{
+    margin-left: 2vw;
+    margin-top: 5vh;
+    font-size: 200%;
+}
+button#delete{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 2vw;
+    margin-top: 5vh;
+    height: 20vh;
+    width: 30vw;
+    background-color: rgb(200, 0, 0);
+    border: none;
+    border-radius: 15px;
+    font-size: 250%;
+    color: var(--white);
+}
+a#Loginn{
+    overflow-y: hidden;
+}
+/* ACCOUNT (HOOFDPAGE) ------------------------------------------------------------------------------------------------------*/
+div#HOME{
+    height: 90vh;
+    width: 60vw;
+    position: absolute;
+    margin-left: 31vw;
+    margin-top: 10vh;
+    background-color: var(--V5);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+div.two{
+    display: flex;
+    flex-direction: row;
+}
+div.profileBalk{
+    width: 25vw;
+    height: 80vh;
+}
+div.profileBalk2{
+    width: 35vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+div.Pb{
+    margin-left: 2.5%;
+    height: 20%;
+    width: 95%;
+    border-radius: 20px;
+    background-color: var(--V49);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+h1#nameProfile{
+    margin-left: 3vw;
+    width: 30%;
+}
+h1#Curname{
+    font-size-adjust: 0.58;
+    margin-left: 3vw;
+    font-size: 100%;
+}
+div.Pb2{
+    margin-left: 2.5%;
+    height: 20%;
+    width: 95%;
+    background-color: var(--white);
+}
+/* PROFILE PAGE (END) ------------------------------------------------------------------------------------------------------*/
+/* CART PAGE (START) ------------------------------------------------------------------------------------------------------*/
+section#cart{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav#cart{
+    height: 15vh;
+    width: 70vw;
+}
+h1#cartTitle{
+    height: 15vh;
+    width: 70vw;
+}
+div.cartBody{
+    height: 70vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+div.cart{
+    display: flex;
+    flex-direction: column;
+}
+div.cartgames{
+    padding: 2vh 0vw 2vh 2vw;
+    margin-right: 2vw;
+    height: 40vh;
+    width: 48vw;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+img#cartGameImg{
+    height: 35vh;
+    width: 10vw;
+}
+div.cartGameText{
+    height: 38vh;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+}
+h1#Charcarpro{
+    height: 8vh;
+    width: 30vw;
+}
+p#Charcompany{
+    height: 8vh;
+    width: 30vw;
+}
+h1#CharPrice{
+    height: 8vh;
+    width: 30vw;
+}
+div#cartButtons{
+    display: flex;
+    flex-direction: row;
+}
+button#AddWish,
+button#RemoveCart{
+    height: 7vh;
+    width: 8vw;
+    margin-right: 1vw;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    color: var(--white);
+    background-color: rgb(0, 0, 100);
+}
+button#RemoveCart{
+    background-color: rgb(100, 0, 0);
+}
+div.cartSubtotal{
+    height: 50vh;
+    width: 20vw;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+h1#cartSubtotal,
+h2#cartSubtotal,
+h3#cartSubtotal,
+h4#cartSubtotal{
+    color: var(--white);
+    height: 5vh;
+    width: 20vw;
+    margin-left:2vw;
+}
+h1#cartSubtotal{
+    font-size: 250%;
+    height: 10vh;
+}
+h2#cartSubtotal{
+    font-size: 150%;
+}
+h3#cartSubtotal{
+    font-size: 100%;
+}
+h4#cartSubtotal{
+    margin-top: 10vh;
+    font-size: 200%;
+}
+button#cartSubtotal{
+    height: 5vh;
+    width: 15vw;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: bold;
+    color: var(--black);
+}
+/* CART PAGE (END) ------------------------------------------------------------------------------------------------------*/
+/* FOOTER () ------------------------------------------------------------------------------------------------------*/
+footer{
+    height: 50vh;
+    width: 100vw;
+    background-color: black;
 }

@@ -1,58 +1,48 @@
 <?php
-require('../config/config.php');
-include_once('../Head/2header.php');
-if (!empty($_SESSION['id'])) {
-    header("Location; index.php");
-}
+include_once('../head-footer/EXheader.php');
 ?>
-
-<h1 id="mededeling">
-    A.U.B.S.V.P<br>
-    NIET duizenden accounts aanmaken <br>
-    ik ben nog ff bezig met de user system <br>
-    als je je hier registreert word je namelijk wel<br>
-    in de database gezet.
-</h1>
 
 <section class="oneSign">
     <div class="sign">
         <h1 id="main">Sign in at game<P id="i">INK</P></h1>
-        <h1 id="second">Already have an account?&nbsp;<a href="USERlogin.php">LOG IN</a></h1>
-        <form id="signin" action="" method="post" autocomplete="off">
-            <input type="text" name="name" placeholder="Full name..." required="" maxlength="50"><br>
-            <input type="text" name="user" placeholder="Username..." required="" maxlength="50"><br>
-            <input type="text" name="email" placeholder="Email..." required="" maxlength="50"><br>
-            <input type="password" name="pwd" placeholder="Password..." required="" maxlength="200"><br>
-            <input type="password" name="pwdRp" placeholder="Repeat Password..." required="" maxlength="200"><br>
-            <button type="submit" name="register" value="register">SIGN UP</button>
-        </form>
+        <h1 id="second">Already have an account?&nbsp;<a id="Loginn" href="../User/login.php">LOG IN</a></h1>
+    <form id="signin" action="../includes/signup.inc.php" method="post">
+    <h1>sign in</h1>
+    <input type="text" name="name" placeholder="Full name..." required="" maxlength="50">
+    <input type="text" name="user" placeholder="Username..." required="" maxlength="12">
+    <input type="text" name="email" placeholder="Email..." required="" maxlength="50">
+    <input type="text" name="pwd" placeholder="Password..." required="" maxlength="200">
+    <input type="text" name="pwdrepeat" placeholder="Repeat Password..." required="" maxlength="200">
+    <button type="submit" name="submit">SIGN UP</button>
+    </form>
     </div>
+    <?php
+if (isset($_GET["error"])) {
+    if ($_GET["error"] == "emptyinput") {
+        echo "<p>Fill in all fields</p>";
+    }
+    elseif ($_GET["error"] == "invaliduid") {
+        echo "<p>choose a better username</p>";
+    }
+    elseif ($_GET["error"] == "invalidemail") {
+        echo "<p>choose a valid email</p>";
+    }
+    elseif ($_GET["error"] == "passwordsdontmatch") {
+        echo "<p>password doesn't match</p>";
+    }
+    elseif ($_GET["error"] == "stmtfailed") {
+        echo "<p>something went wrong</p>";
+    }
+    elseif ($_GET["error"] == "usernametaken") {
+        echo "<p>username already taken</p>";
+    }
+    elseif ($_GET["error"] == "none") {
+        echo "<p>you have signd up</p>";
+    }
+}
+?>
 </section>
 
 <?php
-if(isset($_POST['register'])) {
-    $name = $_POST['name'];
-    $user = $_POST['user'];
-    $email = $_POST['email'];
-    $password = $_POST['pwd'];
-    $passwordRP = $_POST['pwdRp'];
-    $dupe = mysqli_query($conn, "SELECT * FROM gebruiker WHERE Username = '$user' OR Email = '$email'");
-
-    if(mysqli_num_rows($dupe) > 0) {
-        echo
-            "<script> alert('gebruikersnaam of email bestaat al') </script>";
-    } else {
-        if ($password == $passwordRP) {
-            $query = "INSERT INTO gebruiker VALUES('', '$name', '$user', '$email', '$password')";
-            mysqli_query($conn, $query);
-            echo
-                "<script> alert('Account aangemaakt') </script>";
-        } else {
-            echo
-            "<script> alert('Wachtwword komt niet overeen') </script>";
-        }
-    }
-}
-
-include_once('../Head/Footer2.php'); 
+include_once '../head-footer/EXfooter.php';
 ?>
