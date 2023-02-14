@@ -5,6 +5,7 @@ include_once('includes/dbh.inc.php');
 ?>
     <?php
     // print_r($_SESSION['winkelwagen']);
+    if (isset($_SESSION['userid'])){
     if(isset($_POST['add'])){
         // print_r($_POST['productId']);
         if(isset($_SESSION['cart'])){
@@ -27,6 +28,7 @@ include_once('includes/dbh.inc.php');
             $_SESSION['cart'][0] = $itemAry;
         }
     }
+}
     ?>
 <section id="oneIndex">
             <img id="currentDisplay" src="docs/Test1.png">
