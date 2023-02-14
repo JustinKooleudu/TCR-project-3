@@ -379,6 +379,23 @@ button#addToCart{
     background-color: var(--V5);
     cursor: pointer;
 }
+button#addToCart2{
+    height: 5vh;
+    width: 10vw;
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 120%;
+    font-family: 'Rubik', sans-serif;
+    color: var(--black);
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--V5);
+    cursor: pointer;
+}
 /* gameType2 */
 img#gameImage2{
     height: 30vh;
@@ -386,23 +403,22 @@ img#gameImage2{
     border-radius: 10px;
 }
 h1#gameName2{
-    height: 6vh;
-    width: 25vw;
-    font-size: 100%;
+    margin-top: 2%;
+    font-size: 105%;
     color: var(--white);
     margin-left: 5%;
 }
-h1#gameInfo2{
-    height: 8vh;
-    width: 25vw;
+p#gameInfo2{
+    margin-top: 2%;
     margin-left: 5%;
     color: var(--white);
-    font-size: 100%;
+    font-size: small;
 }
 h1#gamePrice2{
     height: 6vh;
     width: 25vw;
     font-size: 150%;
+    margin-top: 2%;
     margin-left: 5%;
     color: var(--white);
 }
@@ -467,12 +483,14 @@ div.exploreC{
     background-color: var(--V15);
 }
 h1#exploreCtitle{
+    margin-left: 2vw;
     height: 10vh;
     width: 80vw;
     margin-top: 10vh;
     color: var(--white);
 }
 h1#exploreCinfo{
+    margin-left: 2vw;
     height: 10vh;
     width: 80vw;
     color: var(--white);
@@ -480,6 +498,14 @@ h1#exploreCinfo{
 button#exploreCbutton{
     height: 8vh;
     width: 10vw;
+    margin-left: 2vw;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 2px var(--V4);
 }
 h1#spotlightTxt{
     color: var(--white);
@@ -495,7 +521,7 @@ section.oneSign {
     height: 86vh;
     width: 100vw;
     /* background-color: var(--V3); */
-    background: url(../docs/UserBackground.jpg);
+    background: url(../docs/UserBackground.png);
     background-repeat: no-repeat;
     background-size: 100vw 86vh;
     display: flex;
@@ -734,11 +760,14 @@ div.Pb2{
 /* PROFILE PAGE (END) ------------------------------------------------------------------------------------------------------*/
 /* CART PAGE (START) ------------------------------------------------------------------------------------------------------*/
 section#cart{
-    height: 100vh;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: url(../docs/CartBackground.png);
+    background-size: cover;
+    color: var(--white);
 }
 nav#cart{
     height: 15vh;
@@ -747,37 +776,48 @@ nav#cart{
 h1#cartTitle{
     height: 15vh;
     width: 70vw;
+    font-size: 350%;
 }
 div.cartBody{
-    height: 70vh;
+    height: auto;
     width: 70vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 div.cart{
+    height: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 div.cartgames{
     padding: 2vh 0vw 2vh 2vw;
     margin-right: 2vw;
+    margin-bottom: 2vh;
+    border-radius: 10px;
     height: 40vh;
     width: 48vw;
-    background-color: aquamarine;
+    background-color: var(--V3);
+    color: var(--white);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 img#cartGameImg{
-    height: 35vh;
+    height: 30vh;
     width: 10vw;
+    border-radius: 5px;
 }
 div.cartGameText{
     height: 38vh;
     width: 35vw;
     display: flex;
     flex-direction: column;
+}
+hr#cart{
+    width: 80%;
+    margin-left: 10%;
 }
 h1#Charcarpro{
     height: 8vh;
@@ -803,8 +843,10 @@ button#RemoveCart{
     border: none;
     border-radius: 5px;
     font-size: 100%;
+    font-weight: bold;
     color: var(--white);
-    background-color: rgb(0, 0, 100);
+    background-color: rgb(250, 0, 0);
+    cursor: pointer;
 }
 button#RemoveCart{
     background-color: rgb(100, 0, 0);
@@ -812,7 +854,7 @@ button#RemoveCart{
 div.cartSubtotal{
     height: 50vh;
     width: 20vw;
-    background-color: blue;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -820,7 +862,7 @@ h1#cartSubtotal,
 h2#cartSubtotal,
 h3#cartSubtotal,
 h4#cartSubtotal{
-    color: var(--white);
+    color: white;
     height: 5vh;
     width: 20vw;
     margin-left:2vw;
@@ -848,7 +890,9 @@ button#cartSubtotal{
     border-radius: 5px;
     font-size: 100%;
     font-weight: bold;
-    color: var(--black);
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 2px var(--V4);
 }
 /* CART PAGE (END) ------------------------------------------------------------------------------------------------------*/
 /* FOOTER () ------------------------------------------------------------------------------------------------------*/

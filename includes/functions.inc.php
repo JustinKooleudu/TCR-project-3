@@ -112,18 +112,6 @@ function loginUser($conn, $username, $pwd) {
         exit();
     }
 }
-function addCart($item){
-    session_start();
-    if(!isset($_SESSION['userid'])){
-        $_SESSION['winkelwagen'] = $item;
-    }
-    else
-    {
-        header('location: index.php');
-    }
-    
-}
-
 function GameDisplay1($productName, $productPrice, $productImg, $productId){
     $element = '
     <form method="post">
@@ -138,15 +126,18 @@ function GameDisplay1($productName, $productPrice, $productImg, $productId){
     ';
     echo $element;
 }
-function GameDisplay2($productName, $productInfo, $productPrice, $productImg){
+function GameDisplay2($productName, $productInfo, $productPrice, $productImg, $productId){
     $element = '
-    <div class="kaart kaart1">
-    <img id="gameImage2" src="'.$productImg.'">
-    <h1 id="gameName2">'.$productName.'</h1>
-    <h1 id="gameInfo2">'.$productInfo.'</h1>
-    <h1 id="gamePrice2">$'.$productPrice.'</h1>
-    <button id="addToCart">Add to cart<i class="fa fa-shopping-cart"></i></button>
+    <form method="post">
+    <div class="kaart">
+        <img id="gameImage2" src="'.$productImg.'">
+            <h1 id="gameName2">'.$productName.'</h1>
+            <p id="gameInfo2">'.$productInfo.'</p>
+            <h1 id="gamePrice2">$'.$productPrice.'</h1>
+            <button name="add" id="addToCart2">Add to cart<i class="fa fa-shopping-cart"></i></button>
+            <input type="hidden" name="productId" value='.$productId.'>
     </div>
+    </form>
     ';
     echo $element;
 }
@@ -165,32 +156,31 @@ function GameDisplay3($productName, $productPrice, $productImg, $productId){
     echo $element;
 }
 
-function GameCart($productName, $productPrice, $productImg){
+function GameCart($productName, $productPrice, $productImg, $productId, $company){
     $element = '
-<div class="cartgames">
+    <form action="cart.php?action=remove&Id='.$productId.'" method="post">
+    <div class="cartgames">
     <img id="cartGameImg" src="'.$productImg.'">
     <div class="cartGameText">
         <h1 id="Charcarpro">'.$productName.'</h1>
-        <p id="Charcompany">Seller: Rockstar games</p>
+        <p id="Charcompany">Seller: '.$company.'</p>
         <p id="GameType">GameType: base game</p>
         <h1 id="CharPrice">$'.$productPrice.'</h1>
         <div id="cartButtons">
-            <button id="AddWish">Add to Wishlist</button>
-            <button id="RemoveCart">Remove</button>
+            <button type="submit" name="Wishlist" id="AddWish">Add to Wishlist</button>
+            <button type="submit" name="remove" id="RemoveCart">Remove</button>
         </div>
     </div>
-</div>
+    </div>
+    </form>
     ';
 
     echo $element;
 }
-function AddProduct() {
 
-}
-
-function getData($dat){
+function getData($dat, $sqlCommand){
     include_once('dbh.inc.php');
-    $sqlD = "SELECT * FROM games";
+    $sqlD = $sqlCommand;
     $data = mysqli_query($dat, $sqlD);
 
     if(mysqli_num_rows($data)>0){
