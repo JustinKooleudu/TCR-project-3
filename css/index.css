@@ -615,99 +615,8 @@ h1#mededeling {
 /* USER sign-up & Login END (END) ------------------------------------------------------------------------------------------------------*/
 /* PROFILE PAGE (NEW PAGE) ------------------------------------------------------------------------------------------------------*/
 /* ACCOUNT (SETTINGS) ------------------------------------------------------------------------------------------------------*/
-section#ProfilePage{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-}
-nav#ProfileNav{
-    height: 90vh;
-    width: 20vw;
-    margin-left: 10vw;
-    margin-top: 10vh;
-    background-color: var(--V5);
-}
-div#accountSettinngs{
-    height: 140vh;
-    width: 60vw;
-    position: absolute;
-    margin-left: 31vw;
-    margin-top: 10vh;
-    background-color: var(--V5);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: none;
-}
-h1#accSett{
-    margin-left: 2vw;
-    margin-top: 3vh;
-    font-size: 200%;
-}
-p#accSett{
-    margin-left: 2vw;
-}
-h1#accIinf{
-    margin-left: 2vw;
-    margin-top: 5vh;
-    font-size: 200%;
-}
-p#accIinf{
-    margin-left: 2vw;
-    margin-top: 2vh;
-}
-form#accUsr{
-    display: flex;
-    flex-direction: column;
-    margin-left: 2vw;
-    margin-top: 2vh;
-}
-div.user,
-div.email{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 10vh;
-    width: 50vw;
-    font-size: 120%;
-}
-input#acc{
-    margin-left: 2vw;
-    height: 5vh;
-    width: 15vw;
-}
-button#acc{
-    margin-left: 1vw;
-    height: 5vh;
-    width: 3vw;
-    background-color: rgb(128, 30, 255);
-    border: none;
-    border-radius: 10%;
-}
-h1#accDet{
-    margin-left: 2vw;
-    margin-top: 5vh;
-    font-size: 200%;
-}
-h1#accAdr{
-    margin-left: 2vw;
-    margin-top: 5vh;
-    font-size: 200%;
-}
-button#delete{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left: 2vw;
-    margin-top: 5vh;
-    height: 20vh;
-    width: 30vw;
-    background-color: rgb(200, 0, 0);
-    border: none;
-    border-radius: 15px;
-    font-size: 250%;
-    color: var(--white);
-}
-a#Loginn{
-    overflow-y: hidden;
-}
-/* ACCOUNT (HOOFDPAGE) ------------------------------------------------------------------------------------------------------*/
+
+/* ACCOUNT (END) ------------------------------------------------------------------------------------------------------*/
 div#HOME{
     height: 90vh;
     width: 60vw;
@@ -716,7 +625,7 @@ div#HOME{
     margin-top: 10vh;
     background-color: var(--V5);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 div.two{

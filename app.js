@@ -1,10 +1,8 @@
 // dropdown
-
 function Dropdown() {
     var drop = document.getElementById('dropdown1');
     var Parent = document.getElementById('line');
-
-    var drop = document.getElementById('dropdown1');
+    
     drop.style.transition = '300ms';
     if (drop.style.left === '-30vw') {
         drop.style.left = '0vw';
@@ -15,11 +13,12 @@ function Dropdown() {
     }
 }
 
-
 function Dropdown2() {
     //user logo dropdown
     var drp = document.getElementById('dropdown2');
+
     drp.style.transition = '300ms';
+    drp.style.pointerEvents = 'none';
     if (drp.style.opacity === '0') {
         drp.style.opacity = '100';
         drp.style.pointerEvents = 'auto';
@@ -70,6 +69,8 @@ window.onload=function(){
     var modes = document.getElementById("Lightmode");
     var CurrentMode = 'dark';
     var icon = document.getElementById("BrightIcon");
+    Dropdown();
+    Dropdown2();
     modes.addEventListener("click", function(){
         if(CurrentMode === 'dark') {
             CurrentMode = 'light';
@@ -83,6 +84,5 @@ window.onload=function(){
             modes.innerHTML = "Toggle Light Mode <i id='BrightIcon' class='fas fa-sun'></i>";
         }   
     });
-    console.log('event');
 }
 

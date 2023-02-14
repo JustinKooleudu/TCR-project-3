@@ -6,8 +6,6 @@ if(!isset($_SESSION['userid'])) {
     header('location: ../User/login.php');
 }
 if(isset($_POST['remove'])){
-    print_r($_GET['Id']);
-    print_r($_SESSION);
     if ($_GET['action'] == 'remove'){
         foreach ($_SESSION['cart'] as $key => $value){
             if($value['productId'] == $_GET['Id']){
