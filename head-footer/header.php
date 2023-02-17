@@ -32,7 +32,7 @@ if(isset($_SESSION['userid'])) {
     <a id="inc" href="#">Profile</a>
     <a id="inc" href="#">Games</a>
     <a id="inc" href="#">Catalog</a>
-    <a id="inc" href="#">Friends</a>
+    <a id="inc" href="user/friends.php">Friends</a>
     <a id="inc" href="#">Store</a>
     <a id="inc" href="#">Cart</a>
     <button id="Lightmode">Toggle Light Mode <i id="BrightIcon" class='fas fa-sun'></i></button>

@@ -1,3 +1,8 @@
+<?php
+include_once('../head-footer/EXheader.php');
+include_once('../includes/functions.inc.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-    <header>
-        <ul>
-            <li><a href="store.php">store</a></li>
-            <li><a href="library.php"></a>library</li>
-            <li><a href="over ons.html"></a>over ons</li>
-        </ul>
-        <ul>
-            <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-            <li><a href="user.php"><i class="fa fa-user"></i></a></li>
-            <li><a href="settings.php"><i class="fa fa-gear"></i></a></li>
-        </ul>
-    </header>
-
     <h1>over gameINK</h1>
     <p>goededag wij zijn gameink en hier willen wij over ons praten. wij zijn een klein bedrijf met een kantor in Roterdam. <br>
        de makers james en khore maakte dit bedrijf om meer spelen van beide grote bedrijven als van kleine makers naar de handen van gamers te krijgen, <br>
@@ -34,3 +25,7 @@
     en all onze data staat op eco-vriendlijke servers zodat wij zo min mogelijk natuur verwoesting veroorzaken.</p>
 </body>
 </html>
+
+<?php
+include_once '../head-footer/EXfooter.php';
+?>
