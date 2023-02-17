@@ -11,13 +11,10 @@ include_once('../head-footer/EXheader.php');
     <input type="text" name="name" placeholder="Full name..." required="" maxlength="50">
     <input type="text" name="user" placeholder="Username..." required="" maxlength="12">
     <input type="text" name="email" placeholder="Email..." required="" maxlength="50">
-    <input type="text" name="pwd" placeholder="Password..." required="" maxlength="200">
-    <input type="text" name="pwdrepeat" placeholder="Repeat Password..." required="" maxlength="200">
-    <button type="submit" name="submit">SIGN UP</button>
-    </form>
-    </div>
+    <input type="password" name="pwd" placeholder="Password..." required="" maxlength="200">
+    <input type="password" name="pwdrepeat" placeholder="Repeat Password..." required="" maxlength="200">
     <?php
-if (isset($_GET["error"])) {
+    if (isset($_GET["error"])) {
     if ($_GET["error"] == "emptyinput") {
         echo "<p>Fill in all fields</p>";
     }
@@ -41,6 +38,9 @@ if (isset($_GET["error"])) {
     }
 }
 ?>
+    <button type="submit" name="submit">SIGN UP</button>
+    </form>
+    </div>
 </section>
 
 <?php

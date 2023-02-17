@@ -49,7 +49,7 @@ if(isset($_SESSION['userid'])) {
                     echo'<a  onclick="Dropdown2()"><i class="fas fa-user-circle" id="user"></i></a>';
                     if(isset($_SESSION['cart'])){
                         $count = count($_SESSION['cart']);
-                        echo '<a ><i class="fa fa-shopping-cart" id="user"></i><div id="cartCount"><h1 id="cartCount">'.$count.'</h1></div></a>';
+                        echo '<a href="../User/cart.php"><i class="fa fa-shopping-cart" id="user"></i><div id="cartCount"><h1 id="cartCount">'.$count.'</h1></div></a>';
                     }
                     else
                     {

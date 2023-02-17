@@ -47,11 +47,11 @@ nav#Navbar {
     overflow-y: hidden;
     overflow-x: hidden;
     justify-content: space-between;
-    z-index: 1000;
+    z-index: 1000000;
 }
 a#pad {
     padding: 0% 6% 0% 1%;
-    z-index: 1000;
+    z-index: 10000000;
 }
 div.ProfileThings{
     height: 8vh;
@@ -80,6 +80,7 @@ i#dropdownParent {
     background-color: var(--white);
     transition: 300ms;
     opacity: 1;
+    z-index: 1000000;
 }
 div#dropdown1 {
     position: absolute;
@@ -89,7 +90,7 @@ div#dropdown1 {
     display: flex;
     flex-direction: column;
     background-color: var(--V2);
-    z-index: 100;
+    z-index: 10000;
 }
 div.Searchbar {
     height: 10%;
@@ -251,9 +252,67 @@ section#oneIndex {
     overflow-y: hidden;
     z-index: 50;
 }
-img#currentDisplay{
+div.main-banner{
+    margin: 0 auto;
     height: 100%;
     width: 70%;
+    background-color: var(--white);
+    overflow: hidden;
+    position: relative;
+}
+div.main-banner .imgban{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    transition: all ease-in-out 500ms;
+    -webkit-transition: all ease-in-out 500ms;
+    -moz-transition: all ease-in-out 500ms;
+    -o-transition: all ease-in-out 500ms;
+}
+div.main-banner #imgban4{
+    background-image: url(../docs/Slide2.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0%;
+}
+div.main-banner #imgban3{
+    background-image: url(../docs/Slide3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0%;
+}
+div.main-banner #imgban2{
+    background-image: url(../docs/Slide4.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0%;
+}
+div.main-banner #imgban1{
+    background-image: url(../docs/Slide1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0%;
+}
+div.banner-line-parent{
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+div.banner-line{
+    height: 0.8vh;
+    width: 5vw;
+    border-radius: 10vw;
+    background-color: var(--V2);
+    transition: 300ms;
+    cursor: pointer;
 }
 div.Side {
     margin-top: 0.2%;
@@ -271,6 +330,20 @@ div#HeightCorrection {
     width: 100vw;
     background-color: var(--V15);
     color: var(--white);
+}
+div.HeightCorrection-2{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+h1#txt-1,
+h1#txt-2{
+    font-size: 300%;
+    margin-top: 1%;
+}
+h1#txt-2{
+    margin-right: 2vw;
+    color: red;
 }
 h1#welcome {
     position: sticky;
@@ -291,6 +364,16 @@ h1#welcome {
 #RecGames{
     height: 90%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+h1#recGameH1{
+    font-size:250%;
+}
+p#recGameP{
+    margin-top: 5vh;
+    font-size: 150%;
 }
 
 div#HeightCorrection .line {
@@ -324,9 +407,12 @@ div.spotlight1{
     justify-content: space-between;
 }
 div.card{
-    height: 60vh;
+    height: auto;
     width: 15vw;
     background-color: var(--V15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 div.spotlight2{
     height: 60vh;
@@ -338,7 +424,7 @@ div.spotlight2{
     background-color: var(--V15);
 }
 div.kaart{
-    height: 60vh;
+    height: auto;
     width: 25vw;
     background-color: var(--V15);
 }
@@ -348,67 +434,61 @@ div.kaart{
 img#gameImage1{
     height: 40vh;
     width: 15vw;
-    border-radius: 5px;
+    border-radius: 2vh;
 }
-h1#gameName1{
-    height: 3vh;
-    width: 15vw;
+h1#gameName1,
+h1#gameName2
+{
     font-size: 100%;
     margin-top: 3vh;
     color: var(--white);
+    overflow: visible;
+    text-align: center;
+}
+h1#gameName2{
+    width: 30vw;
 }
 h1#gamePrice1{
-    height: 6vh;
-    width: 15vw;
+    margin-top: 1vh;
     font-size: 150%;
     color: var(--white);
-}
-button#addToCart{
-    height: 5vh;
-    width: 10vw;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 120%;
-    font-family: 'Rubik', sans-serif;
-    color: var(--black);
-    font-weight: bold;
+    overflow: visible;
+}
+h1#gamePrice1
+p#price2{
+    margin-left: 2vw;
+    text-decoration: none;
+    overflow: visible;
+}
+button#addToCart{
+    height: auto;
+    width: auto;
     border: none;
-    border-radius: 10px;
-    background-color: var(--V5);
     cursor: pointer;
 }
 button#addToCart2{
-    height: 5vh;
-    width: 10vw;
-    margin-left: 1vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 120%;
-    font-family: 'Rubik', sans-serif;
-    color: var(--black);
-    font-weight: bold;
+    height: auto;
+    width: auto;
     border: none;
-    border-radius: 10px;
-    background-color: var(--V5);
     cursor: pointer;
+}
+button#addToCart2:hover,
+img#gameImage1:hover,
+img#gameImage2:hover,
+img#gameImage3:hover
+{
+    transition: 500ms;
+    filter: brightness(110%);
 }
 /* gameType2 */
 img#gameImage2{
     height: 30vh;
     width: 25vw;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
-h1#gameName2{
-    margin-top: 2%;
-    font-size: 105%;
-    color: var(--white);
-    margin-left: 5%;
-}
-p#gameInfo2{
+p#gameInf{
     margin-top: 2%;
     margin-left: 5%;
     color: var(--white);
@@ -422,25 +502,32 @@ h1#gamePrice2{
     margin-left: 5%;
     color: var(--white);
 }
+nav#Spotlight2{
+    height: 10vh;
+    width: 80vw;
+    background-color: var(--V15);
+}
 div.Spotlight3{
     background-color: var(--V4);
     height: 80vh;
     width: 80vw;
     margin-top: 5vh;
+    border-radius: 1vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-nav#Spotlight2{
-    height: 10vh;
-    width: 80vw;
-    background-color: var(--V15);
 }
 nav#Spotlight22{
     height: 10vh;
     width: 80vw;
     background-color: var(--V4);
     margin-left: 7vw;
+    display: flex;
+    align-items: center;
+}
+h1#spotlightTxt2{
+    font-size: 250%;
+    color: var(--white);
 }
 div.spot4{
     height: 70vh;
@@ -448,7 +535,6 @@ div.spot4{
     display: flex;
     justify-content: space-between;
     background-color: var(--V4);
-    margin-left: 7vw;
 }
 div.spotlight4{
     height: 70vh;
@@ -456,11 +542,12 @@ div.spotlight4{
     background-color: var(--V4);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 img#gameImage3{
     height: 40vh;
     width: 30vw;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 /* LAST */
 div.Spotlight5{
@@ -614,59 +701,133 @@ h1#mededeling {
 
 /* USER sign-up & Login END (END) ------------------------------------------------------------------------------------------------------*/
 /* PROFILE PAGE (NEW PAGE) ------------------------------------------------------------------------------------------------------*/
-/* ACCOUNT (SETTINGS) ------------------------------------------------------------------------------------------------------*/
-
-/* ACCOUNT (END) ------------------------------------------------------------------------------------------------------*/
-div#HOME{
-    height: 90vh;
-    width: 60vw;
-    position: absolute;
-    margin-left: 31vw;
-    margin-top: 10vh;
-    background-color: var(--V5);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: none;
-    flex-direction: column;
-}
-div.two{
+section#Profile{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding-top: 7vh;
 }
-div.profileBalk{
-    width: 25vw;
-    height: 80vh;
-}
-div.profileBalk2{
-    width: 35vw;
-    height: 80vh;
+div#Profile{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-right: 9vw;
 }
-div.Pb{
-    margin-left: 2.5%;
-    height: 20%;
-    width: 95%;
-    border-radius: 20px;
-    background-color: var(--V49);
+nav#Profile{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding-left: 14vw;
+}
+
+div.accInf1{
+    height: 8vh;
+    width: 19vw;
+    background-color: var(--white);
+    color: var(--V4);
+    transition: 500ms;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
     align-items: center;
+    border: 0.1vh;
+    border-style: solid;
+    border-color: var(--V5);
+    cursor: pointer;
 }
-h1#nameProfile{
-    margin-left: 3vw;
-    width: 30%;
+h1#accInf2{
+    padding: 0% 0% 0% 0%;
 }
-h1#Curname{
-    font-size-adjust: 0.58;
-    margin-left: 3vw;
+div.accInfLine{
+    height: 100%;
+    width: 5%;
+    background-color: rgb(250, 0, 0);
+    display: none;
+}
+div.accInf1:hover{
+    color: var(--black);
+}
+
+
+div.proflieSet1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 57vw;
+}
+div.AccBG{
+    height: 20vh;
+    width: 55vw;
+    border-radius: 10px 10px 0px 0px;
+    background-image: linear-gradient(to bottom right, rgb(255, 0, 0), rgb(0, 0, 255));
+    overflow: visible;
+    z-index: 10;
+}
+div.AccSec{
+    height: 20vh;
+    width: 55vw;
+    border-radius: 10px;
+    background-color: var(--white);
+    margin-top: 2vh;
+}
+div.AccBG2{
+    height: 40vh;
+    width: 55vw;
+    border-radius: 0px 0px 10px 10px;
+    background-color: var(--white);
+}
+div.AccBG2 h1{
+    margin-top: 10vh;
+    margin-left: 2.5vw;
+    font-size: 200%;
+    padding-bottom: 3vh;
+}
+div.AccBG2 p{
+    margin-left: 2.5vw;
     font-size: 100%;
 }
-div.Pb2{
-    margin-left: 2.5%;
-    height: 20%;
-    width: 95%;
-    background-color: var(--white);
+
+div.AccBG3{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vh;
+    margin-left: 2.5vw;
+}
+div.AccBG3 input{
+    height: 6vh;
+    width: 18vw;
+    background-color: var(--V45);
+    cursor: not-allowed;
+}
+div.AccBG3 input::placeholder{
+    font-size: 150%;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+}
+div.AccBG3 button{
+    height: 6vh;
+    width: 4vw;
+    margin-left: 2vw;
+    border: none;
+    background-color: var(--V2);
+    color: var(--white);
+    cursor: pointer;
+}
+div.AccBG3 p{
+    font-size: 100%;
+    font-weight: bolder;
+    color: var(--black);
+}
+img#AccImg{
+    height: 15vh;
+    width: 7.5vw;
+    margin-top: 12vh;
+    margin-left: 2.5vw;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1vh;
+    border-color: var(--white);
 }
 /* PROFILE PAGE (END) ------------------------------------------------------------------------------------------------------*/
 /* CART PAGE (START) ------------------------------------------------------------------------------------------------------*/
@@ -801,11 +962,134 @@ button#cartSubtotal{
     border-radius: 5px;
     font-size: 100%;
     font-weight: bold;
-    color: black;
+    color: var(--black);
     cursor: pointer;
     box-shadow: 0px 0px 5px 2px var(--V4);
 }
 /* CART PAGE (END) ------------------------------------------------------------------------------------------------------*/
+/* GAME PAGE (START) ------------------------------------------------------------------------------------------------------*/
+h1#game-title{
+    height: 10vh;
+    width: 70vw;
+    font-size: 350%;
+}
+div.gamedisplay-parent{
+    width: 45vw;
+}
+div.gammeinfo-parent,
+hr#game-hr
+{
+    width: 20vw;
+    /* height: auto; */
+}
+iframe#game-vid{
+    height: 50vh;
+    width: 44vw;
+    padding: 1vh 0.5vw 1vh 0.5vw;
+    background-color: var(--black);
+    border-radius: 2vh;
+}
+p#game-info,
+h1#game-genre,
+h1#game-rating,
+p#game-developer
+{
+    margin-top: 2vh;
+    font-size: 150%;
+}
+
+img#game-img{
+    height: 30vh;
+    width: 20vw;
+    border-radius: 1vh;
+}
+div.pegi{
+    height: 10vh;
+    width: 19vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vh;
+    padding: 1vh 0.4vw 1vh 0.5vw;
+    border: 0.1vh;
+    border-style: solid;
+    border-color: var(--V2);
+}
+img#pegi{
+    height: 10vh;
+    width: 4vw;
+    padding-right: 2vw;
+}
+h1#game-price{
+    margin-top: 3vh;
+}
+button#game-buy,
+button#game-cart
+{
+    height: 7vh;
+    width: 100%;
+    margin-top: 2vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background: none;
+}
+button#game-cart{
+    border: 0.1vh;
+    border-style: solid;
+}
+button#game-buy{
+    background-color: var(--Huiskleur);
+}
+/* GAME PAGE (END) ------------------------------------------------------------------------------------------------------*/
+/* ADMIN () ------------------------------------------------------------------------------------------------------*/
+a#admin-link{
+    font-size: 150%;
+    color: rgb(179, 0, 255);
+    margin-right: 2vw;
+    text-decoration: underline;
+}
+.admin-product{
+    margin: 10vh 10vw 10vh 10vw;
+    border-radius: 2vh;
+    height: 170vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--V5);
+    align-items: center;
+}
+button#game-builder{
+    height: 10vh;
+    width: 40%;
+    margin-top: 1vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: bold;
+    color: var(--white);
+    background-color: rgb(250, 0, 0);
+    cursor: pointer;
+}
+input#game-builder{
+    margin-top: 1vh;
+    height: 3vh;
+    width: 50%;
+    border: 0.1vh;
+    border-color: var(--V45);
+    border-style: solid;
+    background-color: var(--white);
+}
+form#game-tool{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--V5);
+    align-items: center;
+}
 /* FOOTER () ------------------------------------------------------------------------------------------------------*/
 footer{
     height: 50vh;

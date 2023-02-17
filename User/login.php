@@ -9,10 +9,7 @@ include_once('../head-footer/EXheader.php');
         <form id="signin" action="../includes/login.inc.php" method="post">
             <input type="text" name="uid" placeholder="Username or email..." required="" maxlength="50"><br>
             <input type="password" name="pwd" placeholder="Password..." required="" maxlength="200"><br>
-            <button type="submit" name="submit">Log in</button>
-        </form>
-    </div>
-    <?php
+            <?php
 if (isset($_GET["error"])) {
     if ($_GET["error"] == "emptyinput") {
         echo "<p>Fill in all fields</p>";
@@ -22,6 +19,9 @@ if (isset($_GET["error"])) {
     }
 }
 ?>
+            <button type="submit" name="submit">Log in</button>
+        </form>
+    </div>
 </section>
 
 <?php

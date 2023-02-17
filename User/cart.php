@@ -29,7 +29,7 @@ if(isset($_POST['remove'])){
                 while ($row = mysqli_fetch_assoc($result)){
                     foreach ($itemId as $id){
                         if($row['Id'] == $id){
-                            GameCart($row['naam'],$row['prijs'],$row['EXimage'],$row['Id'],$row['Company']);
+                            GameCart($row['naam'],$row['prijs'],$row['image'],$row['Id'],$row['Company']);
                             $total = $total + (int)$row['prijs'];
                         }
                     }

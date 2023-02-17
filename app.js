@@ -36,7 +36,7 @@ function ProLog() {
     var link1 = document.getElementById('signuplink');
 }
 
-//Light AND Dark MODE
+//Light AND Dark MODE ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 var ColorVariables = document.documentElement.style
 
 function Lightmode() {
@@ -65,12 +65,25 @@ function Darkmode() {
     root.style.setProperty('--black', 'rgb(0, 0, 0)');
     root.style.setProperty('--white', 'rgb(255, 255, 255)');
 }
+
+//Start up ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 window.onload=function(){
     var modes = document.getElementById("Lightmode");
     var CurrentMode = 'dark';
     var icon = document.getElementById("BrightIcon");
+    //Starndarts
     Dropdown();
     Dropdown2();
+    //silde
+    // document.getElementById("main-banner").onmouseenter = function() {
+    //     clearInterval(startLoop);
+    // }
+    // document.getElementById("main-banner").onmouseleave = function() {
+    //     startLoop = setInterval(function() {
+    //     bannerLoop();
+    // }, 4000);
+    // }
+
     modes.addEventListener("click", function(){
         if(CurrentMode === 'dark') {
             CurrentMode = 'light';
@@ -85,4 +98,10 @@ window.onload=function(){
         }   
     });
 }
+// Porofile Page
 
+// function littleLine() {
+//     document.getElementById("accInfLine").style.display = "block";
+//     document.getElementById("accInf1").style.justifyContent = "space-between";
+//     document.getElementById("accInf2").style.padding = "0% 15% 0% 0%";
+// }
