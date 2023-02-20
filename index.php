@@ -14,6 +14,8 @@ include_once('includes/dbh.inc.php');
         }else{
             $item_ary = array('productId' => $_POST['productId']);
             $_SESSION['cart'][0] = $item_ary;
+            $_SESSION['CurrentGame'] = $_POST['productId'];
+            header("location: User/game.php");
         }
     }
 }
@@ -51,7 +53,7 @@ include_once('includes/dbh.inc.php');
     <h1 id="txt-2">INK</h1><h1 id="txt-1">Game</h1>
     <?php
     if (isset($_SESSION['userid'])){
-    if ($uid === 17) {
+    if ($uid == $admin1 || $uid == $admin2 || $uid == $admin3 || $uid == $admin4) {
         echo '<h1 id="txt-1">Welcome Admin &nbsp;&nbsp;&nbsp;</h1><a id=admin-link href="admin.php">Admin TOOL</a>';
     }
     }
@@ -63,10 +65,10 @@ include_once('includes/dbh.inc.php');
 
     <form action="" method="post"></form>
     <section id="spotlight">
-        <nav id="Spotlight"><h1 id="spotlightTxt"><?php echo date('F') ?> Spotlight games</h1></nav>
+        <nav id="Spotlight"><h1 id="spotlightTxt"><?php echo date('F') ?> Spotlight games<a id="spotlightTxt" href="discover.php">View More</a></h1></nav>
         <div class="spotlight1">
             <?php
-            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%TRENDING%';");
+            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%TRENDING%' ORDER BY RAND();");
             $MaxCards = 0;
             while ($MaxCards < 5) {
                 if($row = mysqli_fetch_assoc($result)){
@@ -78,7 +80,7 @@ include_once('includes/dbh.inc.php');
         </div>
         <div class="spotlight2">
         <?php
-            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%TRENDING2%';");
+            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%TRENDING2%' ORDER BY RAND();");
             $MaxCards = 0;
             while ($MaxCards < 3) {
                 if($row = mysqli_fetch_assoc($result)){
@@ -88,10 +90,10 @@ include_once('includes/dbh.inc.php');
             }
             ?>
         </div>
-        <nav id="Spotlight2"><h1 id="spotlightTxt">Populaire games</h1></nav>
+        <nav id="Spotlight2"><h1 id="spotlightTxt">Populaire games<a id="spotlightTxt" href="discover.php?filter=Pgames">View More</a></h1></nav>
         <div class="spotlight2">
         <?php
-            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%POPULAR%';");
+            $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%POPULAR%' ORDER BY RAND();");
             $MaxCards = 0;
             while ($MaxCards < 5) {
                 if($row = mysqli_fetch_assoc($result)){
@@ -116,7 +118,7 @@ include_once('includes/dbh.inc.php');
         </div></div>
 
         <div class="Spotlight5"><img id="gameImage5" src="docs/GameIdCatalog.png">
-        <div class="exploreC"><h1 id="exploreCtitle">Explore our catalog</h1><h1 id="exploreCinfo">catalog info</h1><button id="exploreCbutton">BROWSE ALL</button></div></div>
+        <div class="exploreC"><h1 id="exploreCtitle">Explore our catalog</h1><h1 id="exploreCinfo">catalog info</h1><button id="exploreCbutton"><a href="discover.php">BROWSE ALL</a></button></div></div>
     </section>
 
     <?php

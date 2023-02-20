@@ -1,6 +1,25 @@
 <?php
 include_once('../head-footer/EXheader.php');
 include_once('../includes/functions.inc.php');
+
+if (isset($_GET['catagory'])){
+    if ($_GET['catagory'] == "accSettings"){
+
+    }
+    if ($_GET['catagory'] == "accEmail"){
+        
+    }
+    if ($_GET['catagory'] == "accPayment"){
+        
+    }
+    if ($_GET['catagory'] == "accPassword"){
+        
+    }
+    if ($_GET['catagory'] == "accFeedback"){
+        
+    }
+}
+
 if(!isset($_SESSION['userid'])) {
     header('location: ../User/login.php');
 }
@@ -25,12 +44,14 @@ if(!isset($_SESSION['userid'])) {
         <div class="AccBG2">
             <h1><?php echo $_SESSION['name']; ?></h1>
             <p><?php echo '@'.$_SESSION['user']; ?></p>
+            <p><?php echo 'id= '.$_SESSION['userid']; ?></p>
             <p><?php echo $_SESSION['email']; ?></p>
             <div class="AccBG3"><input type="text" placeholder="<?php echo $_SESSION['user']; ?>" disabled><button class="fa fa-pencil"></button><p>Change ur username</p></div>
             <div class="AccBG3"><input type="password" placeholder="••••••••••••" disabled><button class="fa fa-pencil"></button><p>Change ur password</p></div></div>
         <div class="AccSec">
             <h1>Games Bought</h1>
         </div>
+        
     </div></div></section>
 
 

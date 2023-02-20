@@ -6,7 +6,7 @@ if(!isset($_SESSION['userid'])) {
     header("location: index.php");
 }
 else
-if($uid == 17){
+if($uid == $admin1 || $uid == $admin2 || $uid == $admin3 || $uid == $admin4){
 }else{
     header("location: index.php");
 }
