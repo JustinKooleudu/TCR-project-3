@@ -28,19 +28,11 @@ function Dropdown2() {
     }
 }
 
-function ProLog() {
-    var sign = document.getElementById('dropdown2');
-    var link1 = document.getElementById('signuplink');
-
-    var log = document.getElementById('dropdown2');
-    var link1 = document.getElementById('signuplink');
-}
-
 //Light AND Dark MODE ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-var ColorVariables = document.documentElement.style
-
 function Lightmode() {
     const root = document.querySelector(':root');
+    var modes = document.getElementById("Lightmode");
+    modes.innerHTML = "Toggle Light Mode <i id='BrightIcon' class='fas fa-sun'></i>";
 
     // set css variable
     root.style.setProperty('--V5', 'rgb(15, 15, 15)');
@@ -54,6 +46,8 @@ function Lightmode() {
 }
 function Darkmode() {
     const root = document.querySelector(':root');
+    var modes = document.getElementById("Lightmode");
+    modes.innerHTML = "Toggle Dark Mode <i id='BrightIcon' class='fas fa-moon'></i>";
 
     // set css variable
     root.style.setProperty('--V5', 'rgb(240, 240, 240)');
@@ -68,9 +62,6 @@ function Darkmode() {
 
 //Start up ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 window.onload=function(){
-    var modes = document.getElementById("Lightmode");
-    var CurrentMode = 'dark';
-    var icon = document.getElementById("BrightIcon");
     //Starndarts
     Dropdown();
     Dropdown2();
@@ -83,25 +74,5 @@ window.onload=function(){
     //     bannerLoop();
     // }, 4000);
     // }
-
-    modes.addEventListener("click", function(){
-        if(CurrentMode === 'dark') {
-            CurrentMode = 'light';
-            Lightmode();
-            modes.innerHTML = "Toggle Dark Mode <i id='BrightIcon' class='fas fa-moon'></i>";
-        }
-        else
-        {
-            CurrentMode = 'dark';
-            Darkmode();
-            modes.innerHTML = "Toggle Light Mode <i id='BrightIcon' class='fas fa-sun'></i>";
-        }   
-    });
 }
-// Porofile Page
 
-// function littleLine() {
-//     document.getElementById("accInfLine").style.display = "block";
-//     document.getElementById("accInf1").style.justifyContent = "space-between";
-//     document.getElementById("accInf2").style.padding = "0% 15% 0% 0%";
-// }

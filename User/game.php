@@ -3,18 +3,24 @@ include_once('../head-footer/EXheader.php');
 include_once('../includes/functions.inc.php');
 include_once('../includes/dbh.inc.php');
 
+$_SESSION['firstTime'] = true;
+
 if(!isset($_SESSION['userid'])) {
     header("location: User/login.php");
 }else{
+    if (isset($_SESSION['cart'][0])) {
+        if ($_SESSION['firstTime'] == true){
+            $_SESSION['firstTime'] = false;
+        }
+    }
         $item_ary_id = array_column($_SESSION['cart'], 'productId');
 
         if (isset($_POST['set'])){
         if(in_array($_POST['productId'], $item_ary_id)){
-            echo "<script>alert('product already');</script>";
+            echo "<script>alert('product already in cart');</script>";
         }else{
             $count = count($_SESSION['cart']);
             $item_ary = array('productId' => $_POST['productId']);
-
             $_SESSION['cart'][$count] = $item_ary;
             header("location: ../User/cart.php");
         }

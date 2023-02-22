@@ -114,13 +114,22 @@ function loginUser($conn, $username, $pwd) {
 }
 //HOME PAGE GAME RIJ
 function GameDisplay1($productName, $productPrice, $productImg, $productId){
+
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form method="post">
     <button name="add" id="addToCart">
     <div class="card card1">
         <img id="gameImage1" src="'.$productImg.'">
         <h1 id="gameName1">'.$productName.'</h1>
-        <h1 id="gamePrice1">$'.$productPrice.'</h1>
+        <h1 id="gamePrice1">'.$productPrice.'</h1>
             <input type="hidden" name="productId" value='.$productId.'>
     </div>
     </button>
@@ -129,6 +138,15 @@ function GameDisplay1($productName, $productPrice, $productImg, $productId){
     echo $element;
 }
 function GameDisplay2($productName, $productInfo, $productPrice, $productImg, $productId){
+
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form method="post">
     <button name="add" id="addToCart2">
@@ -136,7 +154,7 @@ function GameDisplay2($productName, $productInfo, $productPrice, $productImg, $p
         <img id="gameImage2" src="'.$productImg.'">
             <h1 id="gameName2">'.$productName.'</h1>
             <p id="gameInf">'.$productInfo.'</p>
-            <h1 id="gamePrice2">$'.$productPrice.'</h1>
+            <h1 id="gamePrice2">'.$productPrice.'</h1>
             <input type="hidden" name="productId" value='.$productId.'>
     </div>
     </button>
@@ -145,13 +163,22 @@ function GameDisplay2($productName, $productInfo, $productPrice, $productImg, $p
     echo $element;
 }
 function GameDisplay3($productName, $productPrice, $productImg, $productId){
+
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form method="post">
     <button name="add" id="addToCart">
     <div class="card card1">
         <img id="gameImage1" src="'.$productImg.'">
             <h1 id="gameName1">'.$productName.'</h1>
-            <h1 id="gamePrice1">$'.$productPrice.'</h1>
+            <h1 id="gamePrice1">'.$productPrice.'</h1>
             <input type="hidden" name="productId" value='.$productId.'>
     </div>
     </button>
@@ -160,6 +187,15 @@ function GameDisplay3($productName, $productPrice, $productImg, $productId){
     echo $element;
 }
 function GameDisplay4($productName, $productInfo, $productPrice, $productPrice2, $productImg, $productId){
+
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form method="post">
     <button name="add" id="addToCart">
@@ -168,7 +204,7 @@ function GameDisplay4($productName, $productInfo, $productPrice, $productPrice2,
         <h1 id="gameName1">'.$productName.'</h1>
         <h1 id="gameName2">'.$productInfo.'</h1>
         <h1 id="gamePrice1">
-        <p>from $'.$productPrice2.'</p><p id="price2">to $'.$productPrice.'</p>
+        <p>from $'.$productPrice2.'</p><p id="price2">to '.$productPrice.'</p>
     </h1>
     <input type="hidden" name="productId" value='.$productId.'>
     </div></button></form>
@@ -177,6 +213,15 @@ function GameDisplay4($productName, $productInfo, $productPrice, $productPrice2,
 }
 //GAME CART
 function GameCart($productName, $productPrice, $productImg, $productId, $company){
+
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form action="cart.php?action=remove&Id='.$productId.'" method="post">
     <div class="cartgames">
@@ -185,7 +230,7 @@ function GameCart($productName, $productPrice, $productImg, $productId, $company
         <h1 id="Charcarpro">'.$productName.'</h1>
         <p id="Charcompany">Seller: '.$company.'</p>
         <p id="GameType">GameType: base game</p>
-        <h1 id="CharPrice">$'.$productPrice.'</h1>
+        <h1 id="CharPrice">'.$productPrice.'</h1>
         <div id="cartButtons">
             <button type="submit" name="Wishlist" id="AddWish">Add to Wishlist</button>
             <button type="submit" name="remove" id="RemoveCart">Remove</button>
@@ -209,6 +254,14 @@ function CreateSetting($accInf, $accTxt){
 }
 // CURRENT GAME
 function CreateGamePage($productName, $productVideo, $productInfo, $productGenre, $ratings, $gameImg, $gamePegi, $gamePegi2, $productPrice, $productOwner, $release, $platform, $productId){
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+
     $element = '
     <form method="post">
     <h1 id="game-title">'.$productName.'</h1>
@@ -229,7 +282,7 @@ function CreateGamePage($productName, $productVideo, $productInfo, $productGenre
                 <img id="pegi" src="'.$gamePegi.'">
                 <h1>'.$gamePegi2.'</h1>
             </div>
-            <h1 id="game-price">PRICE: $'.$productPrice.'</h1>
+            <h1 id="game-price">PRICE: '.$productPrice.'</h1>
             <button name="buy" id="game-buy">BUY NOW</button>
             <button name="set" id="game-cart">ADD TO CART</button>
             <input type="hidden" name="productId" value='.$productId.'>
@@ -259,6 +312,52 @@ function createGame($conn, $naam, $prijs, $gameDiscount, $gameImage, $gameLogo, 
     mysqli_stmt_close($stmt);
     header('location: ../admin.php');
     exit();
+}
+
+
+function MakeFilter($name, $location) {
+    $element = '
+    <form action="discover.php?filter='.$location.'" method="post">
+    <button id="addToCart" type="submit" name="filter"><a>'.$name.'</a>
+    </button>
+    </form>
+    ';
+    echo $element;
+}
+function filterRows($productImg, $productName, $productPrice, $productId) {
+    if ($productPrice == 0){
+        $productPrice = "free";
+    }
+    else
+    {
+        $productPrice = "$".$productPrice;
+    }
+    $element = '
+    <form method="post">
+    <button name="add" id="addToCart2">
+    <div class="sugg-card">
+    <img src="'.$productImg.'">
+    <h1>'.$productName.'</h1>
+    <h1>'.$productPrice.'</h1>
+    </div>
+    <input type="hidden" name="productId" value='.$productId.'>
+    </button>
+    </form>
+    ';
+    echo $element;
+}
+function EXgenre($name, $location, $img) {
+    $element = '
+    <form action="discover.php?filter='.$location.'" method="post">
+    <button id="addToCart" type="submit" name="filter">
+    <div class="genres-card">
+    <img src="'.$img.'">
+    <h1>'.$name.'</h1>
+    </div>
+    </button>
+    </form>
+    ';
+    echo $element;
 }
 
 //GET GLOABAL DATA FUCTION (FOR ALL) FROM DATABASE
