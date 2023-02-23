@@ -8,6 +8,7 @@ $_SESSION['firstTime'] = true;
 if(!isset($_SESSION['userid'])) {
     header("location: User/login.php");
 }else{
+        CheckIfBanned($conn, $uid, 2);
     if (isset($_SESSION['cart'][0])) {
         if ($_SESSION['firstTime'] == true){
             $_SESSION['firstTime'] = false;

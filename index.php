@@ -29,6 +29,7 @@ include_once('includes/dbh.inc.php');
         <div class="Side">
             <?php 
             if (isset($_SESSION['userid'])) {
+                CheckIfBanned($conn, $uid, 1);
                 echo '<h1 id="welcome">welcome '.$username.'</h1><div id="inform"><h1>you may want to play..</h1>';
             }
             else

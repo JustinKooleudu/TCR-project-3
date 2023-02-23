@@ -27,5 +27,15 @@ if (isset($_POST['addGame'])){
 else
 {
     header("location: ../admin.php");
+    echo "something went wrong";
+    exit();
+}
+if (isset($_POST['unban'])){
+    $user = $_POST['unbanInp'];
+
+    createUnban($conn, $user);
+}else{
+    header("location: ../admin.php");
+    echo "something went wrong";
     exit();
 }

@@ -113,6 +113,9 @@ if(isset($_GET['filter'])){
         $result = getData($conn, "SELECT * FROM games ORDER BY RAND();");
 }
 
+if(isset($_SESSION['userid'])) {
+        CheckIfBanned($conn, $uid, 1);
+}
 if (isset($_POST['add'])){
         if(!isset($_SESSION['userid'])) {
             header("location: User/login.php");

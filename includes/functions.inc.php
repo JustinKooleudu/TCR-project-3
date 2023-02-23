@@ -360,6 +360,37 @@ function EXgenre($name, $location, $img) {
     echo $element;
 }
 
+
+//GET USERS BANNED
+function createBan($conn, $banId, $klacht, $banName, $loc) {
+    $sql = "INSERT INTO banlist (Id, klacht, Username) VALUES (?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header('location: ../User/signup.php?error=stmtfailed');
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sss", $banId, $klacht, $banName);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header('location: '.$loc.'');
+    exit();
+}
+function createUnban($conn, $username){
+    mysqli_query($conn, "DELETE FROM banlist WHERE Username = $username");
+}
+function CheckIfBanned($conn, $uid, $file) {
+    $result = mysqli_query($conn, "SELECT Id FROM banlist WHERE Id = $uid");
+    if (mysqli_num_rows($result)>0) {
+        if ($file == 1) {
+            header('location: error.php?type=banned');
+        }else{
+            header('location: ../error.php?type=banned');
+        }
+    }
+
+}
+
 //GET GLOABAL DATA FUCTION (FOR ALL) FROM DATABASE
 function getData($dat, $sqlCommand){
     include_once('dbh.inc.php');

@@ -25,7 +25,7 @@ if($uid == $admin1 || $uid == $admin2 || $uid == $admin3 || $uid == $admin4){
         7. game video: go to youtube and find a trailer, when you are there and go to the link. you will see this in it (watch?v=(id)) you need to copy the id.<br>
         8. game genre: genre like action simulation, casual.<br>
         9. game pegi name: the name of the pegi like: PEGI 18 or PEGI 16 or PEGI 3 etc.. MAKE SURE ITS CAPS<br>
-        10. game pegi img: a image of a pegi laber, just search on youtube the pegi and you will see it.<br>
+        10. game pegi img: a image of a pegi laber, just search on google the pegi and you will see it.<br>
         11. game state: the game state like: POPULAR TRENING FREE etc.. (MAKE SURE ITS IN CAPS).<br>
         12. game info: a game information just copy/paste it from a site or google.<br>
         13. game company: the company that maked the game.<br>
@@ -35,7 +35,7 @@ if($uid == $admin1 || $uid == $admin2 || $uid == $admin3 || $uid == $admin4){
         <br>
         make sure everything goes good or you will get a warning and all will be removed. (so make a copy if this your first time or some)
     </p>
-    <form id="game-tool" action="includes/product.inc.php" method="post">
+    <form id="game-tool" action="includes/admin.inc.php" method="post">
     <label for="gamename">Game Name (example: Returnal™)</label>
     <input id="game-builder" type="text" name="gamename" placeholder="Game Name..." required="" maxlength="60">
     <label for="gameprice">Game Price (example: 59)</label>
@@ -68,6 +68,14 @@ if($uid == $admin1 || $uid == $admin2 || $uid == $admin3 || $uid == $admin4){
     <input id="game-builder" type="text" name="gameplatform" placeholder="Game platform..." required="">
     <button type="submit" name="addGame" id="game-builder">Make Product</button>
     </form>
+</div>
+
+<div class="admin-unban">
+<h1>Unbanning TOOL</h1>
+<form action="includes/admin.inc.php" method="post">
+<input id="admin-unban" type="text" name="unbanInp" placeholder="Username to get unbanned..." maxlength="13">
+<button type="submit" name="unban" id="admin-unban">Unban User</button>
+</form>
 </div>
 
 <?php

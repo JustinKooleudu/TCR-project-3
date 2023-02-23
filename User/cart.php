@@ -4,6 +4,8 @@ include_once('../includes/functions.inc.php');
 include_once('../includes/dbh.inc.php');
 if(!isset($_SESSION['userid'])) {
     header('location: ../User/login.php');
+}else{
+    CheckIfBanned($conn, $uid, 2);
 }
 if(isset($_POST['remove'])){
     if ($_GET['action'] == 'remove'){

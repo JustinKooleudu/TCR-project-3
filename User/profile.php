@@ -1,4 +1,5 @@
 <?php
+include_once('../includes/dbh.inc.php');
 include_once('../head-footer/EXheader.php');
 include_once('../includes/functions.inc.php');
 
@@ -22,6 +23,8 @@ if (isset($_GET['catagory'])){
 
 if(!isset($_SESSION['userid'])) {
     header('location: ../User/login.php');
+}else{
+        CheckIfBanned($conn, $uid, 2);
 }
 ?>
 

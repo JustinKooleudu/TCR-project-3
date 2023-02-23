@@ -1,5 +1,10 @@
 <?php
 include_once('../head-footer/EXheader.php');
+include_once('../includes/dbh.inc.php');
+include_once('../includes/functions.inc.php');
+if(isset($_SESSION['userid'])) {
+    CheckIfBanned($conn, $uid, 2);
+}
 ?>
 
 <section class="oneSign">
