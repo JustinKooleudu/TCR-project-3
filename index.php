@@ -102,7 +102,6 @@ if (isset($_POST['add'])) {
                     $MaxCards++;
                 }
             }
-        }
         ?>
     </div>
     <div class="spotlight2">
