@@ -31,31 +31,156 @@ if(!isset($_SESSION['userid'])) {
 <section id="Profile">
     <nav id="Profile">
         <?php
-        CreateSetting("1", "ACCOUNT SETTINGS");
-        CreateSetting("2", "EMAIL SETTINGS");
-        CreateSetting("3", "PAYMENT MANAGMENT");
-        CreateSetting("4", "PASSWORD & SECURITY");
-        CreateSetting("5", "FEEDBACK");
-        CreateSetting("6", "REEDEM CODE");
+        CreateSetting("ACCOUNT SETTINGS", "account");
+        CreateSetting("ORDERS", "orders");
+        CreateSetting("PAYMENT MANAGMENT", "payment");
+        CreateSetting("PASSWORD & SECURITY", "security");
+        CreateSetting("FEEDBACK", "feedback");
+        CreateSetting("REEDEM CODE", "reedem");
         ?>
     </nav>
-    <div id="Profile">
-    <div class="proflieSet1">
-        <div class="AccBG">
-            <img id="AccImg" src="../docs/Slide4.png">
+
+    <!-- <div class="profile-parent">
+                <div class="account-tumbnail"><img src="../docs/Discover1.png"></div>
+                <div class="account-body">
+                    <h1 id="account-title">ACCOUNT SETTINGS</h1>
+                    <h1>Welcome '.$name.'</h1>
+                    <p>ID: '.$uid.'</p>
+                    <p>Username: @'.$username.'</p>
+
+                    <div class="account-button-parent">
+                        <div class="account-label"><p>Real Name</p><h2>'.$name.'</h2></div>
+                        <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                    </div>
+                    <div class="account-button-parent">
+                        <div class="account-label"><p>Username</p><h2>'.$username.'</h2></div>
+                        <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                    </div>
+                    <h1>Country</h1>
+                    <div class="account-button-parent">
+                        <div class="account-label"><p>your country</p><h2>Unknown</h2></div>
+                        <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                    </div>
+                    <h1 id="account-delete">Account Delete</h1>
+                    <div class="account-delete">
+                        <p id="account-delete">
+                            note: if you click to delete your account there is no way back
+                            you still need to verify by your email to delete your account.
+                        </p>
+                        <button>Delete Account</button>
+                    </div>
+                </div>
+            </div> -->
+
+    <?php
+    if(isset($_GET['setting'])){
+        if ($_GET['setting'] == "account"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-tumbnail"><img src="../docs/Discover1.png"></div>
+            <div class="account-body">
+                <h1 id="account-title">ACCOUNT SETTINGS</h1>
+                <h1>Welcome '.$name.'</h1>
+                <p>ID: '.$uid.'</p>
+                <p>Username: @'.$username.'</p>
+
+                <div class="account-button-parent">
+                    <div class="account-label"><p>Real Name</p><h2>'.$name.'</h2></div>
+                    <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                </div>
+                <div class="account-button-parent">
+                    <div class="account-label"><p>Username</p><h2>'.$username.'</h2></div>
+                    <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                </div>
+                <h1>Country</h1>
+                <div class="account-button-parent">
+                    <div class="account-label"><p>your country</p><h2>Unknown</h2></div>
+                    <button id="account-label" type="submit"><i class="fa fa-pencil"></i></button>
+                </div>
+                <h1 id="account-delete">Account Delete</h1>
+                <div class="account-delete">
+                    <p id="account-delete">
+                        note: if you click to delete your account there is no way back
+                        you still need to verify by your email to delete your account.
+                    </p>
+                    <button>Delete Account</button>
+                </div>
+            </div>
         </div>
-        <div class="AccBG2">
-            <h1><?php echo $_SESSION['name']; ?></h1>
-            <p><?php echo '@'.$_SESSION['user']; ?></p>
-            <p><?php echo 'id= '.$_SESSION['userid']; ?></p>
-            <p><?php echo $_SESSION['email']; ?></p>
-            <div class="AccBG3"><input type="text" placeholder="<?php echo $_SESSION['user']; ?>" disabled><button class="fa fa-pencil"></button><p>Change ur username</p></div>
-            <div class="AccBG3"><input type="password" placeholder="••••••••••••" disabled><button class="fa fa-pencil"></button><p>Change ur password</p></div></div>
-        <div class="AccSec">
-            <h1>Games Bought</h1>
-        </div>
-        
-    </div></div></section>
+            ';
+            echo $elemnt;
+        }
+        if ($_GET['setting'] == "orders"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-body">
+                <h1 id="account-title">MY ORDERS</h1>
+                <h1>Welcome Full name</h1>
+                <p>ID: UserId</p>
+                <p>Username: Username</p>  
+            </div>
+            </div>
+            ';
+            echo $elemnt;
+        }
+        if ($_GET['setting'] == "payment"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-body">
+                <h1 id="account-title">PAYMENT SETTINGS</h1>
+                <h1>Welcome Full name</h1>
+                <p>ID: UserId</p>
+                <p>Username: Username</p>  
+            </div>
+            </div>
+            ';
+            echo $elemnt;
+        }
+        if ($_GET['setting'] == "security"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-body">
+                <h1 id="account-title">SECURITY SETTINGS</h1>
+                <h1>Welcome Full name</h1>
+                <p>ID: UserId</p>
+                <p>Username: Username</p>  
+            </div>
+            </div>
+            ';
+            echo $elemnt;
+        }
+        if ($_GET['setting'] == "feedback"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-body">
+                <h1 id="account-title">GIVE FEEDBACKS</h1>
+                <h1>Welcome Full name</h1>
+                <p>ID: UserId</p>
+                <p>Username: Username</p>  
+            </div>
+            </div>
+            ';
+            echo $elemnt;
+        }
+        if ($_GET['setting'] == "reedem"){
+            $elemnt = '
+            <div class="profile-parent">
+            <div class="account-body">
+                <h1 id="account-title">REEDEM CODES</h1>
+                <h1>Welcome Full name</h1>
+                <p>ID: UserId</p>
+                <p>Username: Username</p>  
+            </div>
+            </div>
+            ';
+            echo $elemnt;
+        }
+    }
+
+
+    ?>
+
+</section>
 
 
 <?php

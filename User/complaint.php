@@ -7,7 +7,7 @@ if(isset($_SESSION['userid'])) {
 }
 ?>
 
-<section id="cart" onload="disableSubmit()">
+<section id="cart">
     <div class="complain-parent">
         <form action="../includes/banning.php" method="post">
         <label for="klacht">Write Your Complain</label>
@@ -17,16 +17,17 @@ if(isset($_SESSION['userid'])) {
         <button name="BannedFromComplain" id="complain" type="submit">Post Complain</button>
         <div>
             <input id="terms" type="checkbox" name="terms" onchange="activateButton(this)">
-            <p>Accept the terms of you having no rights after submitting</p>
+            <p>
+                are you sure you want to post a bad exprirence?<br>
+                i accept i will not have rights after posting this..
+            </p>
         </div>
         </form>
     </div>
 </section>
 
 <script>
- function disableSubmit() {
   document.getElementById("complain").disabled = true;
- }
 
   function activateButton(element) {
 

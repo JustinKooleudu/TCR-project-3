@@ -243,12 +243,11 @@ function GameCart($productName, $productPrice, $productImg, $productId, $company
     echo $element;
 }
 //PROFILE
-function CreateSetting($accInf, $accTxt){
+function CreateSetting($accTxt, $location){
     $element = '
-    <div id='.$accInf.' class="accInf1">
-    <div id="accInfLine" class="accInfLine"></div>
-    <h1 id="accInf2">'.$accTxt.'</h1>
-    </div>
+    <form action="profile.php?setting='.$location.'" method="post">
+    <button type="submit" name="profileSet" id="profileSet">'.$accTxt.'</button>
+    </form>
     ';
     echo $element;
 }
@@ -298,7 +297,7 @@ function CreateGamePage($productName, $productVideo, $productInfo, $productGenre
     ';
     echo $element;
 }
-
+//GAME PAGE
 function createGame($conn, $naam, $prijs, $gameDiscount, $gameImage, $gameLogo, $gameVideo, $gameGenre, $gamePegi, $gamePegiImg, $gameState, $gameInfo, $gameCompany, $gameRating, $gameRelease, $gamePlatform) {
     $sql = "INSERT INTO games (naam, prijs, image, genre, Company, State, info, prijs2, image2, video, rating, pegName, pegImg, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
@@ -314,7 +313,7 @@ function createGame($conn, $naam, $prijs, $gameDiscount, $gameImage, $gameLogo, 
     exit();
 }
 
-
+// DISCOVER PAGE
 function MakeFilter($name, $location) {
     $element = '
     <form action="discover.php?filter='.$location.'" method="post">

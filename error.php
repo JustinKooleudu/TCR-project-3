@@ -21,6 +21,7 @@ if(isset($_SESSION['userid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/x-icon" href="docs/logoWeb.png">
 </head>
 <body>
     <div class="error">
@@ -28,13 +29,13 @@ if(isset($_SESSION['userid'])) {
         <?php
         if(isset($_GET['type'])){
             if ($_GET["type"] == "banned") {
-                echo "<p>You have been banned for unknown reasons</p>";
-                echo "<p>you will get a unban soon</p>";
+                echo "<p>You have been banned for eternity</p>";
+                echo "<p>and you have no rights to get an unban</p>";
             }
 
             if ($_GET["type"] == "bannedFromKlacht") {
                 echo "You have been banned for telling lies";
-                echo "<p>your ban is for a week</p>";
+                echo "<p>your ban is for eternity</p>";
             }
         }
         ?>

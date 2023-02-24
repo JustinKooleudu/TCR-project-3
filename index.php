@@ -38,8 +38,8 @@ include_once('includes/dbh.inc.php');
             }
             ?>
             <div id="RecGames">
-            <h1 id="recGameH1">Current game</h1>
-            <p id="recGameP">current game info</p>
+            <h1 id="recGameH1">Call of Duty Modern Warfare 2</h1>
+            <p id="recGameP">Call of Duty: Modern Warfare 2 is a first-person shooter developed by Infinity Ward and published by Activision on November 10, 2009 for Microsoft Windows, PlayStation 3 and Xbox 360. Modern Warfare 2 is the sixth installment in the Call of Duty series and , story-wise, a sequel to Call of Duty 4: Modern Warfare.</p>
             <div class="banner-line-parent">
             <div onclick="bn(1)" class="banner-line" id="bnrLine1"></div>
             <div onclick="bn(2)" class="banner-line" id="bnrLine2"></div>
@@ -134,10 +134,6 @@ function bannerLoop() {
 
     if (bannerStatus === 1) {
         document.getElementById("imgban2").style.opacity = "0";
-        document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
         setTimeout(function() {
         document.getElementById("imgban1").style.right = "0%";
         document.getElementById("imgban1").style.zIndex = "1000";
@@ -152,16 +148,18 @@ function bannerLoop() {
         document.getElementById("imgban2").style.opacity = "1";
     }, 4000);
         bannerStatus = 2;
-        document.getElementById("bnrLine1").style.backgroundColor = "rgb(255, 255, 255)";
-        document.getElementById("recGameH1").innerHTML = "Call of Duty Modern Warfare 2";
-        document.getElementById("recGameP").innerHTML = "Call of Duty: Modern Warfare 2 is a first-person shooter developed by Infinity Ward and published by Activision on November 10, 2009 for Microsoft Windows, PlayStation 3 and Xbox 360. Modern Warfare 2 is the sixth installment in the Call of Duty series and , story-wise, a sequel to Call of Duty 4: Modern Warfare.";
+        setTimeout(function(){
+            document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine1").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("recGameH1").innerHTML = "Call of Duty Modern Warfare 2";
+            document.getElementById("recGameP").innerHTML = "Call of Duty: Modern Warfare 2 is a first-person shooter developed by Infinity Ward and published by Activision on November 10, 2009 for Microsoft Windows, PlayStation 3 and Xbox 360. Modern Warfare 2 is the sixth installment in the Call of Duty series and , story-wise, a sequel to Call of Duty 4: Modern Warfare.";
+        }, 1300);
     }
     else if (bannerStatus === 2) {
         document.getElementById("imgban3").style.opacity = "0";
-        document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
         setTimeout(function() {
         document.getElementById("imgban2").style.right = "0%";
         document.getElementById("imgban2").style.zIndex = "1000";
@@ -174,18 +172,20 @@ function bannerLoop() {
     }, 1000);
     setTimeout(function(){
         document.getElementById("imgban3").style.opacity = "1";
-    }, 4000);
+    }, 2000);
         bannerStatus = 3;
-        document.getElementById("bnrLine2").style.backgroundColor = "rgb(255, 255, 255)";
-        document.getElementById("recGameH1").innerHTML = "Apex Legends";
-        document.getElementById("recGameP").innerHTML = "Apex Legends is a battle royale game developed by Respawn Entertainment and published by EA. The free game was released on February 4, 2019 for PlayStation 4, Windows and Xbox One. It also became available for Nintendo Switch in 2021";
+        setTimeout(function(){
+            document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine2").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("recGameH1").innerHTML = "Apex Legends";
+            document.getElementById("recGameP").innerHTML = "Apex Legends is a battle royale game developed by Respawn Entertainment and published by EA. The free game was released on February 4, 2019 for PlayStation 4, Windows and Xbox One. It also became available for Nintendo Switch in 2021";
+        }, 1300);
     }
     else if (bannerStatus === 3) {
         document.getElementById("imgban4").style.opacity = "0";
-        document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
         setTimeout(function() {
         document.getElementById("imgban3").style.right = "0%";
         document.getElementById("imgban3").style.zIndex = "1000";
@@ -200,16 +200,18 @@ function bannerLoop() {
         document.getElementById("imgban4").style.opacity = "1";
     }, 4000);
         bannerStatus = 4;
-        document.getElementById("bnrLine3").style.backgroundColor = "rgb(255, 255, 255)";
-        document.getElementById("recGameH1").innerHTML = "EA Sports FIFA 23";
-        document.getElementById("recGameP").innerHTML = "FIFA 23 is a football simulation game from the FIFA computer game series. The game was released on September 30, 2022. This time, Kylian Mbappé appears on the cover of all editions together with Sam Kerr.";
+        setTimeout(function(){
+            document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine3").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("recGameH1").innerHTML = "EA Sports FIFA 23";
+            document.getElementById("recGameP").innerHTML = "FIFA 23 is a football simulation game from the FIFA computer game series. The game was released on September 30, 2022. This time, Kylian Mbappé appears on the cover of all editions together with Sam Kerr.";
+        }, 1300);
     }
     else if (bannerStatus === 4) {
         document.getElementById("imgban1").style.opacity = "0";
-        document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
-        document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
         setTimeout(function() {
         document.getElementById("imgban4").style.right = "0%";
         document.getElementById("imgban4").style.zIndex = "1000";
@@ -224,9 +226,15 @@ function bannerLoop() {
         document.getElementById("imgban1").style.opacity = "1";
     }, 4000);
         bannerStatus = 1;
-        document.getElementById("bnrLine4").style.backgroundColor = "rgb(255, 255, 255)";
-        document.getElementById("recGameH1").innerHTML = "Battlefield";
-        document.getElementById("recGameP").innerHTML = "Battlefield is a series of first-person shooters developed by EA Digital Illusions CE and published by Electronic Arts. In 2015, Battlefield Hardline was released, which is the first game in the Battlefield series not developed by EA DICE, but by Visceral Games.";
+        setTimeout(function(){
+            document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine2").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
+            document.getElementById("bnrLine4").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("recGameH1").innerHTML = "Battlefield";
+            document.getElementById("recGameP").innerHTML = "Battlefield is a series of first-person shooters developed by EA Digital Illusions CE and published by Electronic Arts. In 2015, Battlefield Hardline was released, which is the first game in the Battlefield series not developed by EA DICE, but by Visceral Games.";
+        }, 1300);
     }
 }
 bannerLoop();

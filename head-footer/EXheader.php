@@ -12,8 +12,9 @@ if(isset($_SESSION['userid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GameINK</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" type="image/x-icon" href="../docs/logoWeb.png">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
@@ -73,7 +74,7 @@ if(isset($_SESSION['userid'])) {
     if (isset($_SESSION['userid'])) {
         echo '
         <div id="dropdown2">
-        <a id="signuplink" href="../User/profile.php">
+        <a id="signuplink" href="../User/profile.php?setting=account">
         <i id= "SigninDrop"><h1>Profile Page</h1><i id="drop" class="fas fa-id-card"></i></i></a>
         <a href="../includes/logout.inc.php">
         <i id="LoginDrop"><h1>Log Out</h1><i id="drop" class="fas fa-sign-in-alt"></i></i></a>
