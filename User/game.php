@@ -1,14 +1,16 @@
 <?php
-include_once('../head-footer/EXheader.php');
+session_start();
+$_SESSION['fileType'] = 2;
+$_SESSION['firstTime'] = true;
+include_once('../head-footer/header.php');
 include_once('../includes/functions.inc.php');
 include_once('../includes/dbh.inc.php');
 
-$_SESSION['firstTime'] = true;
-
 if(!isset($_SESSION['userid'])) {
-    header("location: User/login.php");
+    header("location: ../User/login.php?error=loginfirst");
 }else{
-        CheckIfBanned($conn, $uid, 2);
+    // include_once('../head-footer/chatbot.php');
+    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
     if (isset($_SESSION['cart'][0])) {
         if ($_SESSION['firstTime'] == true){
             $_SESSION['firstTime'] = false;
@@ -16,7 +18,7 @@ if(!isset($_SESSION['userid'])) {
     }
         $item_ary_id = array_column($_SESSION['cart'], 'productId');
 
-        if (isset($_POST['set'])){
+    if (isset($_POST['set'])){
         if(in_array($_POST['productId'], $item_ary_id)){
             echo "<script>alert('product already in cart');</script>";
         }else{
@@ -26,13 +28,75 @@ if(!isset($_SESSION['userid'])) {
             header("location: ../User/cart.php");
         }
     }
+    if (isset($_POST['buy'])){
+        $gameId = $_SESSION['CurrentGame'];
+        $ownedgame = mysqli_query($conn, "SELECT Id, bestelnaam, gebruikerId FROM orders WHERE gebruikerId = ".$uid." AND gameId = ".$gameId.";");
+        if (mysqli_num_rows($ownedgame)>0) {
+            echo "<script> alert('you already own this game')</script>";
+            }
+        elseif(in_array($_POST['productId'], $item_ary_id)){
+            header("location: ../User/game.php?doing=buying");
+        }else{
+            header("location: ../User/game.php?doing=buying");
+        }
+    }
+    
+}
+
+if (isset($_GET['doing'])){
+    if($_GET['doing'] == 'buying'){
+        if(isset($_GET['codefound'])){
+            $codetext = "you submittet the right code";
+        }elseif(isset($_GET['codenotfound'])){
+            $codetext = "your code was wrong";
+        }else{
+            $codetext = "";
+        }
+        $result = getData($conn, "SELECT * FROM games");
+        $gameId = $_SESSION['CurrentGame'];
+        $budget = $_SESSION['budget'];
+        $btn = '<div class="bestelling-price"><p>when clicking "buy product" I accept that I am 18 years older and I know that no returns are possible.</p><button type="submit" name="buyGameGame">Buy Product</button></div>';
+        $cls = '<button type="submit" name="closeGame"><i class="fa fa-close"></i></button>';
+        $total = 0;
+
+        while ($row = mysqli_fetch_assoc($result)){
+            if($row['Id'] == $gameId){
+                $total = $total + (int)$row['prijs'];
+                $total = $total / 100 * 130;
+                buyGameScreen($conn, $username, $budget, $total, 2, $btn, $cls, $uid, "", $codetext);
+            }
+        }
+    }
+    if($_GET['doing'] == 'nomony'){
+        if(isset($_GET['codefound'])){
+            $codetext = "you submittet the right code";
+        }elseif(isset($_GET['codenotfound'])){
+            $codetext = "your code was wrong";
+        }else{
+            $codetext = "";
+        }
+        $result = getData($conn, "SELECT * FROM games");
+        $gameId = $_SESSION['CurrentGame'];
+        $budget = $_SESSION['budget'];
+        $btn = '<div class="bestelling-price"><p>when clicking "buy product" I accept that I am 18 years older and I know that no returns are possible.</p><button type="submit" name="buyGameGame">Buy Product</button></div>';
+        $cls = '<button type="submit" name="closeGame"><i class="fa fa-close"></i></button>';
+        $total = 0;
+
+        while ($row = mysqli_fetch_assoc($result)){
+            if($row['Id'] == $gameId){
+                $total = $total + (int)$row['prijs'];
+                $total = $total / 100 * 130;
+                buyGameScreen($conn, $username, $budget, $total, 2, $btn, $cls, $uid, "you don't have enough money to buy the game", $codetext);
+            }
+        }
+    }
 }
 ?>
+<title>Buy a game at GameINK</title>
 <section id="cart">
         <nav id="cart"></nav>
         <?php
             $result = getData($conn, "SELECT * FROM games WHERE naam = 'Grand Blox Auto';");
-            $MaxCards = 0;
 
             if (isset($_SESSION['cart'])){
                 $gameId = $_SESSION['CurrentGame'];
@@ -49,5 +113,5 @@ if(!isset($_SESSION['userid'])) {
 </section>
 
 <?php
-include_once('../head-footer/EXfooter.php');
+include_once('../head-footer/footer.php');
 ?>

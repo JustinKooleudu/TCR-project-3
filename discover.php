@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['fileType'] = 1;
 include_once('head-footer/header.php');
 include_once('includes/functions.inc.php');
 include_once('includes/dbh.inc.php');
@@ -108,13 +110,13 @@ if(isset($_GET['filter'])){
         if ($_GET["filter"] == "Mobile") {
                 $result = getData($conn, "SELECT * FROM games WHERE platform LIKE '%Mobile%' ORDER BY naam;");
         }
-        
 }else{
-        $result = getData($conn, "SELECT * FROM games ORDER BY RAND();");
+        $result = getData($conn, "SELECT * FROM games ORDER BY naam;");
 }
 
 if(isset($_SESSION['userid'])) {
-        CheckIfBanned($conn, $uid, 1);
+        CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
+        include_once('head-footer/chatbot.php');
 }
 if (isset($_POST['add'])){
         if(!isset($_SESSION['userid'])) {
@@ -132,7 +134,7 @@ if (isset($_POST['add'])){
     }
 }
 ?>
-
+<title>Discover at GameINK</title>
 <section id="cart">
         <nav id="discover"></nav>
 
@@ -150,19 +152,41 @@ if (isset($_POST['add'])){
         </div>
 
         <div class="suggestion-parent">
-                <div class="suggestion-row">
+                <div id="suggestions" class="suggestion-row">
                 <?php
                 while($row = mysqli_fetch_assoc($result)){
-                        filterRows($row['image'],$row['naam'],$row['prijs'],$row['Id']);
-                }
-            ?>
+                        if (mysqli_num_rows($result)>0){
+                                        filterRows($row['image'],$row['naam'],$row['prijs'],$row['Id']);
+                        }}
+                ?>
                 </div>
 
 
                 <div class="suggestion-nav">
                         <div class="suggestion-title">Filter Games <a href="discover.php">Reset</a></div>
-                                <input id="filterS" type="text" placeholder="Search games...">
+                                <input id="filterS" type="text" name="search_text" placeholder="Search games...">
                                 <hr id="sugg">
+
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+                                <script type="text/javascript">
+                                        $(document).ready(function(){
+                                        $("#filterS").keyup(function(){
+                                                var input = $(this).val();
+                                                if(input != ""){
+                                                $.ajax({
+                                                        url:"includes/search.inc.php",
+                                                        method:"post",
+                                                        data:{searchgames:input},
+
+                                                        success:function(data){
+                                                        $("#suggestions").html(data);
+                                                        $("#suggestions").css("display", "flex");
+                                                        }
+                                                });
+                                                }
+                                        });
+                                        });
+                                </script>
                         <!-- <hr id="sugg"> -->
                         <div class="dropdown">
                         <button onclick="SeeEvent()" class="dropbtn"><h1>Events</h1><i id="up5" class="arrowUp"></i></button>
@@ -237,12 +261,10 @@ if (isset($_POST['add'])){
                         </div>
 
 <script>
-
 function SeeEvent() {
         document.getElementById("event").classList.toggle("show");
         document.getElementById("up5").classList.toggle("arrowDown");
 }
-
 function SeePrice() {
         document.getElementById("price").classList.toggle("show");
         document.getElementById("up1").classList.toggle("arrowDown");
@@ -259,19 +281,6 @@ function SeePlat() {
         document.getElementById("platform").classList.toggle("show");
         document.getElementById("up4").classList.toggle("arrowDown");
 }
-// Sluit onclick
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
 </script>
 <!--askdjnaks----------------------------------------------------->
                 </div></div>

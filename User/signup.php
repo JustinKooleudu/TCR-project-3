@@ -1,12 +1,15 @@
 <?php
-include_once('../head-footer/EXheader.php');
+session_start();
+$_SESSION['fileType'] = 2;
+include_once('../head-footer/header.php');
 include_once('../includes/dbh.inc.php');
 include_once('../includes/functions.inc.php');
 if(isset($_SESSION['userid'])) {
-    CheckIfBanned($conn, $uid, 2);
+    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
+    include_once('../head-footer/chatbot.php');
 }
 ?>
-
+<title>Signup at GameINK</title>
 <section class="oneSign">
     <div class="sign">
         <h1 id="main">Sign in at game<P id="i">INK</P></h1>
@@ -24,7 +27,7 @@ if(isset($_SESSION['userid'])) {
         echo "<p>Fill in all fields</p>";
     }
     elseif ($_GET["error"] == "invaliduid") {
-        echo "<p>choose a better username</p>";
+        echo "<p>no characters like (!_<:$-), only characters like a-z A-Z 0-9</p>";
     }
     elseif ($_GET["error"] == "invalidemail") {
         echo "<p>choose a valid email</p>";
@@ -49,5 +52,5 @@ if(isset($_SESSION['userid'])) {
 </section>
 
 <?php
-include_once '../head-footer/EXfooter.php';
+include_once('../head-footer/footer.php');
 ?>

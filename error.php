@@ -3,14 +3,6 @@ include_once('includes/functions.inc.php');
 include_once('includes/dbh.inc.php');
 
 session_start();
-
-if(isset($_SESSION['userid'])) {
-    $username = $_SESSION["user"];
-    $email = $_SESSION["email"];
-    $uid = $_SESSION["userid"];
-    $name = $_SESSION['name'];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +14,7 @@ if(isset($_SESSION['userid'])) {
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" type="image/x-icon" href="docs/logoWeb.png">
+    <title>oops GameINK has some troubles</title>
 </head>
 <body>
     <div class="error">

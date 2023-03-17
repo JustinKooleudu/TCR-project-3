@@ -35,14 +35,24 @@ function Lightmode() {
     modes.innerHTML = "Toggle Light Mode <i id='BrightIcon' class='fas fa-sun'></i>";
 
     // set css variable
-    root.style.setProperty('--V5', 'rgb(15, 15, 15)');
-    root.style.setProperty('--V4', 'rgb(35, 35, 35)');
-    root.style.setProperty('--V3', 'rgb(95, 95, 95)');
-    root.style.setProperty('--V2', 'rgb(135, 135, 135)');
-    root.style.setProperty('--V15', 'rgb(140, 140, 140)');
-    root.style.setProperty('--V1', 'rgb(145, 145, 145)');
-    root.style.setProperty('--black', 'rgb(255, 255, 255)');
-    root.style.setProperty('--white', 'rgb(0, 0, 0)');
+    root.style.setProperty('--RGB-0', 'rgb(255, 255, 255)');
+    root.style.setProperty('--RGB-10', 'rgb(250, 250, 250)');
+    root.style.setProperty('--RGB-12.5', 'rgb(230, 230, 230)');
+    root.style.setProperty('--RGB-15', 'rgb(240, 240, 240)');
+    root.style.setProperty('--RGB-20', 'rgb(220, 220, 220)');
+    root.style.setProperty('--RGB-35', 'rgb(215, 215, 215)');
+    root.style.setProperty('--RGB-60', 'rgb(200, 200, 200)');
+    root.style.setProperty('--RGB-80', 'rgb(180, 180, 180)');
+    root.style.setProperty('--RGB-100', 'rgb(150, 150, 150)');
+    root.style.setProperty('--RGB-120', 'rgb(120, 120, 120)');
+    root.style.setProperty('--RGB-150', 'rgb(100, 100, 100)');
+    root.style.setProperty('--RGB-180', 'rgb(80, 80, 80)');
+    root.style.setProperty('--RGB-200', 'rgb(60, 60, 60)');
+    root.style.setProperty('--RGB-215', 'rgb(35, 35, 35)');
+    root.style.setProperty('--RGB-220', 'rgb(20, 20, 20)');
+    root.style.setProperty('--RGB-240', 'rgb(15, 15, 15)');
+    root.style.setProperty('--RGB-250', 'rgb(10, 10, 10)');
+    root.style.setProperty('--RGB-255', 'rgb(0, 0, 0)');
 }
 function Darkmode() {
     const root = document.querySelector(':root');
@@ -50,15 +60,27 @@ function Darkmode() {
     modes.innerHTML = "Toggle Dark Mode <i id='BrightIcon' class='fas fa-moon'></i>";
 
     // set css variable
-    root.style.setProperty('--V5', 'rgb(240, 240, 240)');
-    root.style.setProperty('--V4', 'rgb(120, 120, 120)');
-    root.style.setProperty('--V3', 'rgb(60, 60, 60)');
-    root.style.setProperty('--V2', 'rgb(20, 20, 20)');
-    root.style.setProperty('--V15', 'rgb(15, 15, 15)');
-    root.style.setProperty('--V1', 'rgb(10, 10, 10)');
-    root.style.setProperty('--black', 'rgb(0, 0, 0)');
-    root.style.setProperty('--white', 'rgb(255, 255, 255)');
+    root.style.setProperty('--RGB-0', 'rgb(0, 0, 0)');
+    root.style.setProperty('--RGB-10', 'rgb(10, 10, 10)');
+    root.style.setProperty('--RGB-15', 'rgb(15, 15, 15)');
+    root.style.setProperty('--RGB-20', 'rgb(20, 20, 20)');
+    root.style.setProperty('--RGB-35', 'rgb(35, 35, 35)');
+    root.style.setProperty('--RGB-60', 'rgb(60, 60, 60)');
+    root.style.setProperty('--RGB-80', 'rgb(80, 80, 80)');
+    root.style.setProperty('--RGB-100', 'rgb(100, 100, 100)');
+    root.style.setProperty('--RGB-120', 'rgb(120, 120, 120)');
+    root.style.setProperty('--RGB-150', 'rgb(150, 150, 150)');
+    root.style.setProperty('--RGB-180', 'rgb(180, 180, 180)');
+    root.style.setProperty('--RGB-200', 'rgb(200, 200, 200)');
+    root.style.setProperty('--RGB-215', 'rgb(215, 215, 215)');
+    root.style.setProperty('--RGB-220', 'rgb(220, 220, 220)');
+    root.style.setProperty('--RGB-230', 'rgb(230, 230, 230)');
+    root.style.setProperty('--RGB-240', 'rgb(240, 240, 240)');
+    root.style.setProperty('--RGB-250', 'rgb(250, 250, 250)');
+    root.style.setProperty('--RGB-255', 'rgb(255, 255, 255)');
 }
+
+// chatbot
 
 //Start up ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 window.onload=function(){

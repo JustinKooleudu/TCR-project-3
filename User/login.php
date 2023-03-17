@@ -1,12 +1,15 @@
 <?php
-include_once('../head-footer/EXheader.php');
+session_start();
+$_SESSION['fileType'] = 2;
+include_once('../head-footer/header.php');
 include_once('../includes/dbh.inc.php');
 include_once('../includes/functions.inc.php');
 if(isset($_SESSION['userid'])) {
-    CheckIfBanned($conn, $uid, 2);
+    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
+    include_once('../head-footer/chatbot.php');
 }
 ?>
-
+<title>Login at GameINK</title>
 <section class="oneSign">
     <div class="sign">
     <h1 id="main">Log in at game<P id="i">INK</P></h1>
@@ -19,8 +22,14 @@ if (isset($_GET["error"])) {
     if ($_GET["error"] == "emptyinput") {
         echo "<p>Fill in all fields</p>";
     }
-    elseif ($_GET["error"] == "wronglogin") {
-        echo "<p>Incorrect login</p>";
+    elseif ($_GET["error"] == "userexist") {
+        echo "<p>User don't exist!</p>";
+    }
+    elseif ($_GET["error"] == "passwordincorrect") {
+        echo "<p>Incorrect password!</p>";
+    }
+    elseif ($_GET["error"] == "loginfirst") {
+        echo "<p>you need to login first!</p>";
     }
 }
 ?>
@@ -30,5 +39,5 @@ if (isset($_GET["error"])) {
 </section>
 
 <?php
-include_once('../head-footer/EXfooter.php');
+include_once('../head-footer/footer.php');
 ?>
