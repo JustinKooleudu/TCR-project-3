@@ -1,6 +1,8 @@
 <?php
-
-
+include_once("includes/dbh.inc.php");
+include_once("includes/functions.inc.php");
+include_once("head-footer/header.php");
+include_once("head-footer/footer.php");
 
 ?>
 
