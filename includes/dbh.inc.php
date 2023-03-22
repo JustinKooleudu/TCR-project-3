@@ -16,11 +16,7 @@ $admin2 = 123458;
 $admin3 = 15;
 $admin4 = 19;
 
-<<<<<<< HEAD
 //Codes
 $reedemcode1 = "LanaRhoades";
 $reedemcode2 = "MiaKhalifa";
 $reedemcode3 = "jhohnnysins";
-=======
-?>
->>>>>>> dbf77fb911c9dcd4bddf2966e81527f5f3c79fc8
