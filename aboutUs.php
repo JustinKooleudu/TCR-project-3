@@ -31,8 +31,10 @@ include_once("head-footer/header.php");
     </div><br><br>
     <div class="doel">
         <h1>onze doelstellingen</h1>
-        <p1>we are proud to say that we are eco-vriendly and donaat 10% of our profit to good couses to make the world a
-            better place.</p1>
+        <p1>
+            we are proud to say that we are eco-vriendly and donaat 10% of our profit to good couses to make the world a
+            better place.
+        </p1>
     <div>
     <br><br><br><br><br><br><br><br>
 </body>
