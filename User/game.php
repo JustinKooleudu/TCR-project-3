@@ -10,7 +10,7 @@ if(!isset($_SESSION['userid'])) {
     header("location: ../User/login.php?error=loginfirst");
 }else{
     // include_once('../head-footer/chatbot.php');
-    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
+    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid); CheckLevel($conn, $uid);
     if (isset($_SESSION['cart'][0])) {
         if ($_SESSION['firstTime'] == true){
             $_SESSION['firstTime'] = false;
@@ -62,7 +62,7 @@ if (isset($_GET['doing'])){
         while ($row = mysqli_fetch_assoc($result)){
             if($row['Id'] == $gameId){
                 $total = $total + (int)$row['prijs'];
-                $total = $total / 100 * 130;
+                // $total = $total / 100 * 130;
                 buyGameScreen($conn, $username, $budget, $total, 2, $btn, $cls, $uid, "", $codetext);
             }
         }
@@ -85,7 +85,7 @@ if (isset($_GET['doing'])){
         while ($row = mysqli_fetch_assoc($result)){
             if($row['Id'] == $gameId){
                 $total = $total + (int)$row['prijs'];
-                $total = $total / 100 * 130;
+                // $total = $total / 100 * 130;
                 buyGameScreen($conn, $username, $budget, $total, 2, $btn, $cls, $uid, "you don't have enough money to buy the game", $codetext);
             }
         }

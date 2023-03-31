@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['fileType'] = 1;
+$checkifuserExist = false;
 include_once('head-footer/header.php');
 include_once('includes/functions.inc.php');
 include_once('includes/dbh.inc.php');
@@ -21,17 +22,29 @@ include_once('includes/dbh.inc.php');
         }
     } 
 }
+if (isset($_SESSION['userid'])){
+    CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid); CheckOwnedProducts($conn, $uid); CheckLevel($conn, $uid);
+    include_once('head-footer/chatbot.php');
+    $checkifuserExist = true;
+}
 // botToSql($conn, "hebben jullie apex", 1);
-?> 
+// print_r($_SESSION['ownedgamesImg']);
+?>
+<!-- <iframe id="" height="200px" width="400px" src="https://www.youtube.com/embed/HGtyzEGcW3k?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=HGtyzEGcW3k" frameborder="0"></iframe> -->
+    <!-- <iframe id="" height="200px" width="400px" src="docs/cod.trailer.mp4"></iframe> -->
+    <!-- <iframe id="" height="200px" width="400px" src="docs/cod.trailer.mp4?autoplay=1&mute=1&controls=0&loop=1" frameborder="0"></iframe> -->
+
 <title>Welcome at GameINK</title>
 <section id="oneIndex">
-    <div class="main-banner" id="main-banner"><div class="imgban" id="imgban4"></div><div class="imgban" id="imgban3"></div>
-    <div class="imgban" id="imgban2"></div><div class="imgban" id="imgban1"></div></div>
+    <div class="main-banner" id="main-banner">
+        <div class="imgban" id="imgban1"><video  class="vidban" src="docs/cod.trailer.mp4" loop muted autoplay="autoplay"></video></div>
+        <div class="imgban" id="imgban2"><video  class="vidban" src="docs/minec.trailer.mp4" loop muted autoplay="autoplay"></video></div>
+        <div class="imgban" id="imgban3"><video  class="vidban" src="docs/apex.trailer.mp4" loop muted autoplay="autoplay"></video></div>
+        <div class="imgban" id="imgban4"><video id="getridof"  class="vidban" src="docs/gta.trailer.mp4" loop muted autoplay="autoplay"></video></div>
+    </div>
         <div class="Side">
             <?php 
-            if (isset($_SESSION['userid'])) {
-                CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
-                include_once('head-footer/chatbot.php');
+            if ($checkifuserExist == true) {
                 echo '<h1 id="welcome">welcome '.$username.'</h1><div id="inform"><h1>you may want to play..</h1>';
             }
             else
@@ -40,8 +53,8 @@ include_once('includes/dbh.inc.php');
             }
             ?>
             <div id="RecGames">
-            <h1 id="recGameH1">Grand Theft Auto</h1>
-            <p id="recGameP">Grand Theft Auto is a series of action-adventure games created by David Jones and Mike Dailly. Later titles were developed under the oversight of brothers Dan and Sam Houser, Leslie Benzies and Aaron Garbut.</p>
+            <h1 id="recGameH1">Call of Duty: Modern Warfare II</h1>
+            <p id="recGameP">Call of Duty: Modern Warfare II is a 2022 first-person shooter game developed by Infinity Ward and published by Activision. It is a sequel to the 2019 reboot, and serves as the nineteenth installment in the overall Call of Duty series.</p>
             <div class="banner-line-parent"> <div onclick="bn(1)" class="banner-line" id="bnrLine1"></div> <div onclick="bn(2)" class="banner-line" id="bnrLine2"></div>
             <div onclick="bn(3)" class="banner-line" id="bnrLine3"></div> <div onclick="bn(4)" class="banner-line" id="bnrLine4"></div></div></div></div>
     </section>
@@ -58,35 +71,108 @@ include_once('includes/dbh.inc.php');
 
     <!-- GAMES SECTION ----------------------------------------------------------------------------------------------------------------------->
 
-    <form action="" method="post"></form>
+    <form action="" method="post"></form> 
     <section id="spotlight">
-        <nav id="Spotlight"><h1 id="spotlightTxt"><?php echo date('F') ?> Spotlight games<a id="spotlightTxt" href="discover.php">View More</a></h1></nav>
-        <div class="spotlight1">
-            <?php GameDisplay($conn, 'TRENDING', 1); ?>
-        </div>
-        <div class="spotlight2">
-        <?php GameDisplay($conn, 'TRENDING2', 2); ?>
-        </div>
-        <nav id="Spotlight2"><h1 id="spotlightTxt">Populaire games<a id="spotlightTxt" href="discover.php?filter=Pgames">View More</a></h1></nav>
-        <div class="spotlight2">
-        <?php GameDisplay($conn, 'POPULAR', 3); ?>
-        </div>
-        <div class="Spotlight3"><nav id="Spotlight22"><h1 id="spotlightTxt2">Now Free games</h1></nav>
-        <div class="spot4">
-        <?php GameDisplay($conn, 'FREE', 4); ?>
-        </div></div>
+        <nav id="Fade6" class="Spotlight">
+            <h1 id="spotlightTxt"><?php echo date('F') ?> Spotlight games<a id="spotlightTxt" href="discover.php">View More</a></h1>
+            <i id="left1" class='fas fa-angle-left' style='font-size:24px'></i>
+            <i id="right1" class='fas fa-angle-right' style='font-size:24px'></i>
+        </nav>
 
-        <div class="Spotlight5"><img id="gameImage5" src="docs/GameIdCatalog.png">
+        <div class="spotlight1-parent"><div id="Fade1" class="spotlight1"> <?php GameDisplay($conn, 'TRENDING', 1); ?> </div></div>
+        <div id="Fade2" class="spotlight11"> <?php GameDisplay($conn, 'TRENDING2', 2); ?> </div>
+        <nav class="nav-spotlight2">
+            <h1 id="spotlightTxt">Populaire games<a id="spotlightTxt" href="discover.php?filter=Pgames">View More</a></h1>
+            <i id="left2" class='fas fa-angle-left' style='font-size:24px'></i>
+            <i id="right2" class='fas fa-angle-right' style='font-size:24px'></i>
+        </nav>
+
+        <div class="spotlight1-parent"><div id="Fade3" class="spotlight2"> <?php GameDisplay($conn, 'POPULAR', 3); ?> </div></div>
+        <div id="Fade4" class="Spotlight3">
+        <nav id="Fade8" class="Spotlight22"><h1 id="spotlightTxt2">Now Free games</h1></nav><div id="spotlight4" class="spot4"> <?php GameDisplay($conn, 'FREE', 4); ?> </div></div>
+
+        <div id="Fade5" class="Spotlight5"><img id="gameImage5" src="docs/GameIdCatalog.png">
         <div class="exploreC"><h1 id="exploreCtitle">Explore our catalog</h1><h1 id="exploreCinfo">catalog info</h1><button id="exploreCbutton"><a href="discover.php">BROWSE ALL</a></button></div></div>
     </section>
-
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+$(document).ready(function() {
+  var originalMarginLeft = parseFloat($('.spotlight1').css('margin-left'));
+  var clickCount = 0;
+
+  $('#right1').click(function() {
+    if (clickCount < 2) {
+      clickCount++;
+      originalMarginLeft -= 81.25;
+      $('.spotlight1').css('margin-left', originalMarginLeft + 'vw');
+      $('#right1').css({ 'border': '0.1vh solid var(--RGB-255)' });
+    }
+    if (clickCount === 2) {
+        $('#right1').css('border','none');
+        $('#right1').prop('disabled', true);
+    }
+  });
+
+  $('#left1').click(function() {
+    if (clickCount > 0) {
+      clickCount--;
+      originalMarginLeft += 81.25;
+      $('.spotlight1').css('margin-left', originalMarginLeft + 'vw');
+      $('#left1').css({ 'border': '0.1vh solid var(--RGB-255)' });
+    }
+    if (clickCount === 0) {
+        $('#left1').css('border','none');
+        $('#right1').prop('disabled', false);
+    }
+  });
+
+  var originalMarginLeft2 = parseFloat($('.spotlight1').css('margin-left'));
+  var clickCount2 = 0;
+
+  $('#right2').click(function() {
+    if (clickCount2 < 2) {
+      clickCount2++;
+      originalMarginLeft2 -= 81.25;
+      $('.spotlight2').css('margin-left', originalMarginLeft2 + 'vw');
+      $('#right2').css({ 'border': '0.1vh solid var(--RGB-255)' });
+    }
+    if (clickCount2 === 2) {
+        $('#right2').css('border','none');
+        $('#right2').prop('disabled', true);
+    }
+  });
+
+  $('#left2').click(function() {
+    if (clickCount2 > 0) {
+      clickCount2--;
+      originalMarginLeft2 += 81.25;
+      $('.spotlight2').css('margin-left', originalMarginLeft2 + 'vw');
+      $('#left2').css({ 'border': '0.1vh solid var(--RGB-255)' });
+    }
+    if (clickCount2 === 0) {
+        $('#left2').css('border','none');
+        $('#right2').prop('disabled', false);
+    }
+  });
+});
+
+
+
+function swipeL1(){
+    var card = document.getElementsByClassName("card1");
+    card.style.opacity = 0;
+}
+function swipeR1(){
+    
+}
 
 var bannerStatus = 1;
 
 function bn(nmr) {
     bannerStatus = nmr;
 }
+document.getElementById("getridof").src = "";
 
 function bannerLoop() {
 
@@ -112,11 +198,12 @@ function bannerLoop() {
             document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine1").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("recGameH1").innerHTML = "Grand Theft Auto";
-            document.getElementById("recGameP").innerHTML = "Grand Theft Auto is a series of action-adventure games created by David Jones and Mike Dailly. Later titles were developed under the oversight of brothers Dan and Sam Houser, Leslie Benzies and Aaron Garbut.";
+            document.getElementById("recGameH1").innerHTML = "Call of Duty: Modern Warfare II";
+            document.getElementById("recGameP").innerHTML = "Call of Duty: Modern Warfare II is a 2022 first-person shooter game developed by Infinity Ward and published by Activision. It is a sequel to the 2019 reboot, and serves as the nineteenth installment in the overall Call of Duty series.";
         }, 1300);
     }
     else if (bannerStatus === 2) {
+        document.getElementById("getridof").src = "docs/gta.trailer.mp4";
         document.getElementById("imgban3").style.opacity = "0";
         setTimeout(function() {
         document.getElementById("imgban2").style.right = "0%";
@@ -130,7 +217,7 @@ function bannerLoop() {
     }, 1000);
     setTimeout(function(){
         document.getElementById("imgban3").style.opacity = "1";
-    }, 2000);
+    }, 4000);
         bannerStatus = 3;
         setTimeout(function(){
             document.getElementById("bnrLine1").style.backgroundColor = "rgb(20, 20, 20)";
@@ -138,8 +225,8 @@ function bannerLoop() {
             document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine2").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("recGameH1").innerHTML = "Apex Legends";
-            document.getElementById("recGameP").innerHTML = "Apex Legends is a battle royale game developed by Respawn Entertainment and published by EA. The free game was released on February 4, 2019 for PlayStation 4, Windows and Xbox One. It also became available for Nintendo Switch in 2021";
+            document.getElementById("recGameH1").innerHTML = "Minecraft";
+            document.getElementById("recGameP").innerHTML = "Minecraft is a 3D sandbox game developed by Mojang Studios where players interact with a fully modifiable three-dimensional environment made of blocks and entities. Its diverse gameplay lets players choose the way they play, allowing for countless possibilities.";
         }, 1300);
     }
     else if (bannerStatus === 3) {
@@ -164,8 +251,8 @@ function bannerLoop() {
             document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine3").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("recGameH1").innerHTML = "EA Sports FIFA 23";
-            document.getElementById("recGameP").innerHTML = "FIFA 23 is a football simulation game from the FIFA computer game series. The game was released on September 30, 2022. This time, Kylian Mbappé appears on the cover of all editions together with Sam Kerr.";
+            document.getElementById("recGameH1").innerHTML = "Apex Legends";
+            document.getElementById("recGameP").innerHTML = "Apex Legends is a battle royale game developed by Respawn Entertainment and published by EA. The free game was released on February 4, 2019 for PlayStation 4, Windows and Xbox One. It also became available for Nintendo Switch in 2021";
         }, 1300);
     }
     else if (bannerStatus === 4) {
@@ -190,12 +277,15 @@ function bannerLoop() {
             document.getElementById("bnrLine3").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine4").style.backgroundColor = "rgb(20, 20, 20)";
             document.getElementById("bnrLine4").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("recGameH1").innerHTML = "The Last of Us Part II";
-            document.getElementById("recGameP").innerHTML = "The Last of Us Part II is a 2020 action-adventure game developed by Naughty Dog and published by Sony Interactive Entertainment for the PlayStation 4.";
+            document.getElementById("recGameH1").innerHTML = "Grand Theft Auto";
+            document.getElementById("recGameP").innerHTML = "Apex Legends is a battle royale game developed by Respawn Entertainment and published by EA. The free game was released on February 4, 2019 for PlayStation 4, Windows and Xbox One. It also became available for Nintendo Switch in 2021";
         }, 1300);
     }
 }
 bannerLoop();
+
+window.addEventListener('load', check_fade_in);
+window.addEventListener('scroll', check_fade_in);
 
 window.onload=function(){
 var startLoop = setInterval(function() {

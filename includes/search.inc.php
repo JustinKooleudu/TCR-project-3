@@ -173,3 +173,59 @@
         }
     }
     }
+
+    if(isset($_POST['changeBio'])){
+        $newbio = $_POST['newbio'];
+        $uid = $_SESSION['userid'];
+
+        $upd = "UPDATE gebruiker SET Bio = '$newbio' WHERE Id = $uid;";
+        mysqli_query($conn, $upd);
+        header("location: ../User/friendz.php?mypage");
+        $_SESSION['bio'] = $newbio;
+    }
+    if(isset($_POST['changeUsern'])){
+        $uid = $_SESSION['userid'];
+        $username = $_SESSION['user'];
+        $oldUser = $_POST['oldU'];
+        $newUser = $_POST['newU'];
+        if ($username == $oldUser){
+            $upd = "UPDATE gebruiker SET Username = '$newUser' WHERE Id = $uid;";
+            mysqli_query($conn, $upd);
+            header("location: ../User/friendz.php?mypage");
+            $_SESSION['user'] = $newUser;
+        }else{
+            header("location: ../User/friendz.php?mypage&usernamedoesnotmatch");
+        }
+    }
+    if(isset($_POST['changeEmail'])){
+        $uid = $_SESSION['userid'];
+        $email = $_SESSION['email'];
+        $oldE = $_POST['oldE'];
+        $newE = $_POST['newE'];
+        if ($email == $oldE){
+            $upd = "UPDATE gebruiker SET Email = '$newE' WHERE Id = $uid;";
+            mysqli_query($conn, $upd);
+            header("location: ../User/friendz.php?mypage");
+            $_SESSION['email'] = $newE;
+        }else{
+            header("location: ../User/friendz.php?mypage&emaildontmatch");
+        }
+    }
+    if(isset($_POST['changePwd'])){
+        $currPw = $_SESSION['password'];
+        $oldPw = $_POST['oldPw'];
+        $newPw = $_POST['newPw'];
+        $uid = $_SESSION['userid'];
+
+        $checkPassword = password_verify($oldPw, $currPw);
+
+        if ($checkPassword == false){
+            header("location: ../User/friendz.php?mypage&passwordfalse");
+        }elseif ($checkPassword == true){
+            $newPwHash = password_hash($newPw, PASSWORD_DEFAULT);
+            $upd = "UPDATE gebruiker SET Password = '$newPwHash' WHERE Id = $uid;";
+            mysqli_query($conn, $upd);
+            header("location: ../User/friendz.php?mypage");
+            $_SESSION['password'] = $newPwHash;
+        }
+    }

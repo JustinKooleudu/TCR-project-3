@@ -108,8 +108,12 @@ function loginUser($conn, $username, $pwd) {
         $_SESSION["user"] = $uidExists["Username"];
         $_SESSION['email'] = $uidExists['Email'];
         $_SESSION['name'] = $uidExists['Name'];
+        $_SESSION["password"] = $uidExists["Password"];
         $_SESSION['profilePic'] = $uidExists['profileImg'];
         $_SESSION['bio'] = $uidExists['Bio'];
+        $_SESSION['level'] = $uidExists['level'];
+        $_SESSION['onlinedate'] = $uidExists['onlineDate'];
+        $_SESSION['land'] = $uidExists['Land'];
         header('location: ../index.php');
         exit();
     }
@@ -135,9 +139,9 @@ function GameDisplay($conn, $state, $displ){
         $productPrice = "&#128178;".$row['prijs'];
     }
     if     ($displ == 1){
-        if($MaxCards1 < 5){
+        if($MaxCards1 < 15){
         ?>
-        <form method="post"><button name="add" id="addToCart"><div class="card card1">
+        <form id="cardslide1" method="post"><button name="add" id="addToCart"><div class="card card1">
         <div class="gameImage1"><img id="gameImage1" src="<?php echo $row['image']?>"></div>
         <h1 id="gameName1"><?php echo $row['naam']?></h1>
         <h1 id="gamePrice1"><?php echo $productPrice?></h1>
@@ -158,9 +162,9 @@ function GameDisplay($conn, $state, $displ){
         $MaxCards2++;
         }
     }elseif($displ == 3){
-        if($MaxCards3 < 5){
+        if($MaxCards3 < 15){
         ?>
-        <form method="post"><button name="add" id="addToCart"><div class="card card1">
+        <form method="post"><button name="add" id="addToCart"><div class="card card2">
         <div class="gameImage1"><img id="gameImage1" src="<?php echo $row['image']?>"></div>
         <h1 id="gameName1"><?php echo $row['naam']?></h1>
         <h1 id="gamePrice1"><?php echo $productPrice?></h1>
@@ -238,7 +242,7 @@ function CreateGamePage($productName, $productVideo, $productInfo, $productGenre
     <h1 id="game-title">'.$productName.'</h1>
     <div class="cartBody">
     <div class="gamedisplay-parent">
-        <iframe id="game-vid" src="https://www.youtube.com/embed/'.$productVideo.'?autoplay=1&mute=1&controls=1" frameborder="0"></iframe>
+        <iframe id="game-vid" src="https://www.youtube.com/embed/'.$productVideo.'?autoplay=1&mute=1&controls=0" frameborder="0" style="pointer-events: none;"></iframe>
         <p id="game-info">'.$productInfo.'</p>
         <h1 id="game-genre">Genre</h1>
         <p id="game-genre">'.$productGenre.'</p>
@@ -312,7 +316,7 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
             <hr>
             <div class="body">
                 <h1 id="titl">WALLET BALANCE</h1>$
-                <div class="b wallet"><i class="fa fa-money"></i><h1>Wallet: <?php if($wallet < 2){echo "you have no money yet";}elseif($wallet > 2107483647){echo "infinite money";}else {echo "&#128178;". $wallet;}?></h1></div>
+                <div class="b wallet"><i class="fa fa-money"></i><h1>Wallet: <?php if($wallet < -2){echo "you owe us money, report this before you can get banned";}elseif($wallet < 2){echo "you have no money yet";}elseif($wallet > 2107483647){echo "infinite money";}else {echo "&#128178;". $wallet;}?></h1></div>
                 <h1 id="titl">PAYMENT METHODS</h1>
                 <div onclick="showReedem()" class="b reedem"><img src="https://cdn0.iconfinder.com/data/icons/ecommerce-121/24/gift-card-512.png"><h1>Reedem code</h1></div>
                 <div id="reedem" class="b reedema"><input name="codesent" type="text" maxlength="25"><button type="submit" name="submitCode">Reedem Code</button></div>
@@ -321,7 +325,7 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
                 <div class="paypal" id="paypal"></div>
                 <script src="https://www.paypal.com/sdk/js?client-id=AZLZpIsRImLEzb0Lib54PbLsNg_POLIU3uBKdahm4Uycn_A5sRoSPllpOxH6rBFH-7sJNbut-KRVB4EA" data-namespace="paypal_sdk"></script>
                 <script>
-                var totalprice = document.getElementById('TotalpriceForjs').value ;
+                var totalprice = document.getElementById('TotalpriceForjs').value;
                 paypal_sdk.Buttons({
                 createOrder : function(data, actions){
                 return actions.order.create({
@@ -333,7 +337,7 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
                     application_context: {
                         shipping_preference: "NO_SHIPPING",
                     },
-                    country_code : "PH"
+                    country_code : "NL"
                 })
                 },
                 style: {
@@ -359,7 +363,7 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
                         _token : token
                         })
                     }).then(function(res){
-                        window.location.href = "../includes/transitions.inc.php";
+                        window.location.href = "../User/profile.php?setting=orders";
                     });
                     });
                 },
@@ -393,16 +397,21 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
                 $total = 0;
                 if ($type == 1){
                     echo '<input type="hidden" name="buyHeader" value="../User/cart.php?doing=nomony">';
+                    $_SESSION['AllIds'] = array();
+                    $_SESSION['AllNames'] = array();
+                    $_SESSION['AllImages'] = array();
+                    $_SESSION['AllPrices'] = array();
+                    $_SESSION['AllInfos'] = array();
                     while ($row = mysqli_fetch_assoc($result)){
                         foreach ($itemId as $id){
                             if($row['Id'] == $id){
                                 GameDisplay5($row['image'],$row['naam'],$row['prijs']);
                                 $total = $total + (int)$row['prijs'];
-                                echo '<input type="hidden" name="buyId" value="'.$id.'">';
-                                echo '<input type="hidden" name="checkName" value="'.$row['naam'].'">';
-                                echo '<input type="hidden" name="checkImg" value="'.$row['image'].'">';
-                                echo '<input type="hidden" name="checkPrice" value="'.$row['prijs'].'">';
-                                echo '<input type="hidden" name="checkInf" value="'.$row['info'].'">';
+                                $_SESSION['AllIds'][] = $id;
+                                $_SESSION['AllNames'][] = $row['naam'];
+                                $_SESSION['AllImages'][] = $row['image'];
+                                $_SESSION['AllPrices'][] = $row['prijs'];
+                                $_SESSION['AllInfos'][] = $row['info'];
                             }
                         }
                     }
@@ -411,7 +420,7 @@ function buyGameScreen($conn, $user, $wallet, $Tprice, $type, $button, $colsebut
                                 echo '<input type="hidden" name="checkUsername" value="'.$row['Username'].'">';
                                 echo '<input type="hidden" name="checkEmail" value="'.$row['Email'].'">';
                             }
-                        }
+                    }
                 }elseif ($type == 2){
                     echo '<input type="hidden" name="buyHeader" value="../User/game.php?doing=nomony">';
                     echo '<input type="hidden" name="buyId" value="'.$gameId.'">';
@@ -528,6 +537,14 @@ function CheckIfBanned($conn, $uid, $file) {
     }
 
 }
+function CheckLevel($conn, $uid){
+    $result = getData($conn, "SELECT level FROM gebruiker WHERE Id = $uid;");
+
+    while ($row = mysqli_fetch_assoc($result)){
+        $level = $row['level'];
+        $_SESSION['level'] = $level;
+    }
+}
 //Last Online
 function CheckLastTimeOnline($conn, $uid){
     $date = date("j F Y");
@@ -540,8 +557,18 @@ function CheckWhereLiving($conn, $uid){
     $location = $userlocation['country'];
     mysqli_query($conn, "UPDATE gebruiker SET Land = '$location' WHERE gebruiker.Id = $uid;");
 }
+
+function CheckOwnedProducts($conn, $uid) {
+    $result = mysqli_query($conn, "SELECT * FROM orders WHERE gebruikerId = $uid");
+    $ownedGamegs = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $ownedGamegs[] = $row['bestelimage'];
+    }
+    $_SESSION['ownedgamesImg'] = $ownedGamegs;
+}
+
 //FRIENDS
-function ShowFriendPage($friendsname, $friendLevel, $friendImg, $friendBio, $uid, $friendId){
+function ShowFriendPage($conn, $friendsname, $friendLevel, $friendImg, $friendBio, $uid, $friendId){
     if(isset($_GET['alreadyfriends'])){
         $btnTitle = "Already Friends";
         echo "<script>alert('already friends')</script>";
@@ -560,30 +587,53 @@ function ShowFriendPage($friendsname, $friendLevel, $friendImg, $friendBio, $uid
     <h1 id="mainTxt"><?php echo $friendsname?></h1>
     <div class="row-friend-profile-child">
         <div class="profile-child1">
-        <h1 id="Bio">Bio</h1>
+            <h1 id="Bio">Bio</h1>
             <div class="bio">
                 <h1 id="bi"><?php if($friendBio == ""){echo "This user don't have a bio yet";}else{echo $friendBio;} ?></h1>
+            </div>
+            <h1 id="Bio">Owned games</h1>
+            <div class="ownedgames">
+            <?php
+            CheckOwnedProducts($conn, $friendId);
+            $allgames = $_SESSION['ownedgamesImg'];
+            if (count($allgames) == 0) {
+                echo "de gebruiker heeft geen games";
+            } else {
+                foreach ($allgames as $gameimages) {?>
+                    <img src="<?php echo $gameimages ?>">
+                <?php
+                }
+            }
+            ?>
             </div>
         </div>
         <div class="profile-child2">
             <h1 id="level">Level <?php if($friendLevel > 100000){echo "GOD";}else{echo $friendLevel;} ?></h1>
+            <?php
+            if ($uid == $friendId){?>
+            <div onclick="showProfilepic(1)" class="friend-option"><h1>Change Bio</h1></div>
+            <div onclick="showProfilepic(2)" class="friend-option"><h1>Change ProfileImg</h1></div>
+            <div onclick="showProfilepic(3)" class="friend-option"><h1>Change Username</h1></div>
+            <div onclick="showProfilepic(4)" class="friend-option"><h1>Change Email</h1></div>
+            <div onclick="showProfilepic(5)" class="friend-option"><h1>Change Password</h1></div>
+            <?php
+            }else{?>
             <form id="form1" action="../includes/search.inc.php" method="post"><div onclick="submit('form1')" class="friend-option"><h1><?php echo $btnTitle ?></h1></div>
             <input type="hidden" name="friendrequestSender" value="<?php echo $uid?>">
-            <input type="hidden" name="friendrequestReceiver" value="<?php echo $friendId?>">
-            </form>
+            <input type="hidden" name="friendrequestReceiver" value="<?php echo $friendId?>"></form>
             <form id="form2" action="../includes/search.inc.php" method="post"><div onclick="submit('form2')" class="friend-option"><h1>Delete Friend</h1></div>
             <input type="hidden" name="friendDeleteSender" value="<?php echo $uid?>">
-            <input type="hidden" name="friendDeleteReceiver" value="<?php echo $friendId?>">
-            </form>
+            <input type="hidden" name="friendDeleteReceiver" value="<?php echo $friendId?>"></form>
             <form id="form3" action="?messages" method="post"><div onclick="submit('form3')" class="friend-option"><h1>Messages</h1></div>
             <input type="hidden" name="friendPageId" value="<?php echo $friendId?>">
             <input type="hidden" name="friendPageName" value="<?php echo $friendsname?>">
-            <input type="hidden" name="friendPageImg" value="<?php echo $friendImg?>">
-            </form>
+            <input type="hidden" name="friendPageImg" value="<?php echo $friendImg?>"></form>
             <form id="form4" action="../includes/search.inc.php" method="post"><div onclick="submit('form4')" class="friend-option"><h1>Follow</h1></div>
             <input type="hidden" name="friendFollowSender" value="<?php echo $uid?>">
-            <input type="hidden" name="friendFollowReceiver" value="<?php echo $friendId?>">
-            </form>
+            <input type="hidden" name="friendFollowReceiver" value="<?php echo $friendId?>"></form>
+            <?php
+            }
+            ?>
         </div>
         <script>
             function submit(id){
@@ -593,8 +643,8 @@ function ShowFriendPage($friendsname, $friendLevel, $friendImg, $friendBio, $uid
         </script>
     </div>
     </div>
-    <?php
-    }
+<?php
+}
 
 function showFriends($conn, $uid, $type, $resultA, $resORsendr){
     $queryB = "SELECT * FROM gebruiker WHERE Id = $resORsendr";
@@ -878,9 +928,9 @@ function botToSql($conn, $userinp, $type){
             if($_SESSION["fileType"] == 1){$dest = "User/game.php";}elseif($_SESSION["fileType"] == 2){$dest = "../User/game.php";}
                 if (isset($_SESSION['cart'])){
                     $_SESSION['CurrentGame'] = $botgameid;
-                    $_SESSION['SqlBotReplay'] = mysqli_real_escape_string($conn, "ja wij hebben $botgamename <a href=$dest> ga naar de game</a>");
+                    $_SESSION['SqlBotReplay'] = mysqli_real_escape_string($conn, "ja wij hebben  $botgamename in onze website Klik <a href=$dest>Hier</a> om naar de game te gaan");
                 }else{
-                    $_SESSION['SqlBotReplay'] = "er is een plorbleem met je winkelwagen, ga even naar de homepage en kilk op een random game, daarna kun je de vraag weer stellen";
+                    $_SESSION['SqlBotnoReplay'] = "er is een plorbleem met je winkelwagen, ga even naar de homepage en kilk op een random game, daarna kun je de vraag weer stellen";
     }}}
     if ($type == 2){
         foreach ($userWords as $DDwords) {
@@ -889,18 +939,28 @@ function botToSql($conn, $userinp, $type){
             if (mysqli_num_rows($result) > 0) {
                 $checkifinsql = 1;
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $botFid = $row["Id"];
                     $botFname = $row["Username"];
-                    $botFid = $row['Id'];
+                    $botFlevel = $row["level"];
+                    $botFimg = $row["profileImg"];
+                    $botFbio = $row["Bio"];
+                    $botFdate = $row["onlineDate"];
          }}}
         if ($checkifinsql == 1){
-            if($_SESSION["fileType"] == 1){$dest = "User/game.php";}elseif($_SESSION["fileType"] == 2){$dest = "../User/game.php";}
-                if (isset($_SESSION['cart'])){
-                    $_SESSION['CurrentGame'] = $botgameid;
-                    $_SESSION['SqlBotReplay'] = mysqli_real_escape_string($conn, "ja  $botFname is een gebruiker in onze website Klik <a href=$dest>Hier</a> om naar hem te gaan");
+            if($_SESSION["fileType"] == 1){$dest = "User/friendz.php?friendProfile";}elseif($_SESSION["fileType"] == 2){$dest = "../User/friendz.php?friendProfile";}
+                    $_SESSION['friendId'] = $botFid;
+                    $_SESSION['friendsname'] = $botFname;
+                    $_SESSION['friendLevel'] = $botFlevel;
+                    $_SESSION['friendImg'] = $botFimg;
+                    $_SESSION['friendBio'] = $botFbio;
+                    $_SESSION['friendDate'] = $botFdate;
+
+                    $_SESSION['SqlBotReplay'] = mysqli_real_escape_string($conn, "ja  $botFname is een gebruiker in onze website Klik <a href=$dest>Hier</a> om naar hem/haar te gaan");
                 }else{
-                    $_SESSION['SqlBotReplay'] = "er is een plorbleem met je winkelwagen, ga even naar de homepage en kilk op een random game, daarna kun je de vraag weer stellen";
-    }}}
+                    $_SESSION['SqlBotnoReplay'] = "controleer of je de naam goed hebt gespeld, als de naam toch goed is bestaat hij niet op de site";
+    }}
 }
+
 
 //GET GLOABAL DATA FUCTION (FOR ALL) FROM DATABASE
 function getData($dat, $sqlCommand){

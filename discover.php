@@ -14,7 +14,8 @@ if(isset($_GET['filter'])){
                 $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%POPULAR%' ORDER BY naam;");
         }
         if ($_GET["filter"] == "Ngames") {
-                $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%NEW%' ORDER BY naam;");
+                $result = mysqli_query($conn, "SELECT * FROM games WHERE State LIKE '%NEW%' ORDER BY naam;");
+                // $result = getData($conn, "SELECT * FROM games WHERE State LIKE '%NEW%' ORDER BY naam;");
         }
 
         if ($_GET["filter"] == "FreeGames") {
@@ -115,12 +116,12 @@ if(isset($_GET['filter'])){
 }
 
 if(isset($_SESSION['userid'])) {
-        CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid);
-        include_once('head-footer/chatbot.php');
+        CheckIfBanned($conn, $uid, 1); SetBudget($conn, $uid); CheckLastTimeOnline($conn, $uid); CheckWhereLiving($conn, $uid); CheckLevel($conn, $uid);
+        // include_once('head-footer/chatbot.php');
 }
 if (isset($_POST['add'])){
         if(!isset($_SESSION['userid'])) {
-            header("location: User/login.php");
+            header("location: User/login.php?error=loginfirst");
         }else{
         if (isset($_SESSION['cart'])){
             $_SESSION['CurrentGame'] = $_POST['productId'];
@@ -157,7 +158,10 @@ if (isset($_POST['add'])){
                 while($row = mysqli_fetch_assoc($result)){
                         if (mysqli_num_rows($result)>0){
                                         filterRows($row['image'],$row['naam'],$row['prijs'],$row['Id']);
-                        }}
+                        }else{
+                                echo "no results found";
+                        }
+                }
                 ?>
                 </div>
 
